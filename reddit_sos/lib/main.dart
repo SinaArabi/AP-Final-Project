@@ -11,6 +11,8 @@ class defaultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(title: 'defaultPage',
+    theme: ThemeData(primaryColor: Color.fromRGBO(66, 165, 245, 1.0),
+    accentColor: Color.fromARGB(49, 133, 207, 29),),
     home: tabsScreen(),
     );
   }
