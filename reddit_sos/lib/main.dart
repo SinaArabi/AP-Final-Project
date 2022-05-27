@@ -13,12 +13,13 @@ class defaultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'defaultPage',
       theme: ThemeData(
-        primaryColor: Color.fromRGBO(66, 165, 245, 1.0),
-        accentColor: Color.fromARGB(49, 133, 207, 29),
+        selectedRowColor: Colors.grey.shade900,
+        primaryColor: Color(0xff121110),
       ),
-      home: subRedditPage(),
+      home: tabsScreen(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_sos/main.dart';
+import 'package:reddit_sos/subRedditPage.dart';
 
 class tabsScreen extends StatefulWidget {
   const tabsScreen({Key? key}) : super(key: key);
@@ -30,9 +31,7 @@ class _tabsScreenState extends State<tabsScreen> {
           Container(
             color: Colors.red,
           ),
-          Container(
-            color: Colors.blue,
-          ),
+          subRedditPage(),
           Container(
             color: Colors.green,
           ),
@@ -45,36 +44,47 @@ class _tabsScreenState extends State<tabsScreen> {
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Theme.of(context).primaryColor,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
+              color: Colors.white,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.search,
+              color: Colors.white,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.add),
+            icon: Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.message,
+              color: Colors.white,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.notifications_none_outlined),
+            icon: Icon(
+              Icons.notifications_none_outlined,
+              color: Colors.white,
+            ),
             label: '',
           ),
         ],
         currentIndex: _selectedPageIndex,
-        selectedItemColor: Theme.of(context).primaryColor,
+        selectedItemColor: Theme.of(context).selectedRowColor,
         unselectedItemColor: Theme.of(context).accentColor,
         onTap: _selectPage,
       ),

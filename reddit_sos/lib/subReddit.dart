@@ -1,7 +1,7 @@
 class subReddit {
-  String id;
+  String subId;
   String image;
   int members;
 
-  subReddit(this.id, this.image, this.members);
+  subReddit(this.subId, this.image, this.members);
 }
