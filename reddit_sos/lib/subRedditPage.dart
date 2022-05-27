@@ -73,7 +73,8 @@ class _subRedditPageState extends State<subRedditPage> {
               ),
             ),
           ],
-        ));
+        ),
+      );
   }
 
   @override

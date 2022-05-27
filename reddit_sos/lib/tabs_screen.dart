@@ -3,7 +3,7 @@ import 'package:reddit_sos/main.dart';
 import 'package:reddit_sos/subRedditPage.dart';
 
 class tabsScreen extends StatefulWidget {
-  const tabsScreen({Key? key}) : super(key: key);
+  // const tabsScreen({Key? key}) : super(key: key);
 
   @override
   State<tabsScreen> createState() => _tabsScreenState();
