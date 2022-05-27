@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/screens/login/login.dart';
 import './tabs_screen.dart';
 
-
 void main() {
-  runApp(defaultPage());
+  runApp(MyApp());
 }
-class defaultPage extends StatelessWidget {
-  const defaultPage({Key? key}) : super(key: key);
 
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'defaultPage',
-    theme: ThemeData(primaryColor: Color.fromRGBO(66, 165, 245, 1.0),
-    accentColor: Color.fromARGB(49, 133, 207, 29),),
-    home: tabsScreen(),
+
+    return MaterialApp(
+
+      title: 'Material App',
+      home: Scaffold(
+        backgroundColor: Colors.orange,
+        body: loginScreen(),
+      ),
     );
   }
 }
