@@ -13,9 +13,6 @@ class postView extends StatelessWidget {
   final post chosenPost;
   postView(this.chosenPost);
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,9 +97,12 @@ class postView extends StatelessWidget {
                           onPressed: () {},
                           style: TextButton.styleFrom(primary: Colors.white),
                         ),
-                        Icon(
-                          Votes.down_bold,
-                          color: Colors.white,
+                        IconButton(
+                          icon: Icon(
+                            Votes.down_bold,
+                            color: Colors.white,
+                          ),
+                          onPressed: () {},
                         ),
                         SizedBox(
                           width: 20,
@@ -133,7 +133,22 @@ class postView extends StatelessWidget {
                     itemBuilder: (context, index) {
                       return commentComponent(chosenPost.postComments[index]);
                     }),
-              )
+              ),
+              Align(
+                  alignment: Alignment.bottomCenter,
+                  child: TextField(
+                      enabled: false,
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                          disabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(10),
+                              borderSide:
+                                  BorderSide(color: Colors.white, width: 1.0)),
+                          labelText: 'Add a comment',
+                          floatingLabelBehavior: FloatingLabelBehavior.auto,
+                          labelStyle: TextStyle(color: Colors.white)),
+                      onChanged: (value) => {} //add comment function,
+                      ))
             ],
           ),
         ),

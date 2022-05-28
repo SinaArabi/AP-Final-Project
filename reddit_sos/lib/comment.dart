@@ -6,6 +6,7 @@ class comment {
   String commentContent;
   int upVotes;
   int downVotes;
+  DateTime commentDate;
   comment(
-      this.commentposter, this.commentContent, this.upVotes, this.downVotes);
+      this.commentposter, this.commentContent, this.upVotes, this.downVotes, this.commentDate);
 }

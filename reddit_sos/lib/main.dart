@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/comment.dart';
 import 'package:reddit_sos/post.dart';
 import 'package:reddit_sos/postView.dart';
 import 'package:reddit_sos/user.dart';
@@ -15,15 +16,15 @@ class defaultPage extends StatelessWidget {
   post myPost = new post(
        subReddit(
           'Fifa22',
-          ".\assets\images\7070023.jpg",
+          "assets\images\7070023.jpg",
           56),
-      new user('Sina', []),
+      new user('Sina', [], "assets\images\7070023.jpg"),
       DateTime.now(), "Fifa update",
       "we are all hyped for the World Cup update!",
       18,
       2,
-      0,
-      []);
+      2,
+      [new comment(new user("sadra", [], "assets\images\7070023.jpg"), "wow thats great!", 6, 1, DateTime.now()), new comment(new user("asghar", [], "assets\images\7070023.jpg"), "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!", 1, 2, DateTime.now())]);
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
