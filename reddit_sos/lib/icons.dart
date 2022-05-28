@@ -24,4 +24,6 @@ class Votes {
       IconData(0xf00a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData upload_1 =
       IconData(0xf02f, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData comment_alt =
+      IconData(0xf27a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

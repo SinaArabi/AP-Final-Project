@@ -38,6 +38,7 @@ class postView extends StatelessWidget {
           child: Column(
             children: [
               ListTile(
+                contentPadding: EdgeInsets.only(left: 0, right: 0),
                 leading: Container(
                   width: 60,
                   height: 60,
@@ -62,14 +63,14 @@ class postView extends StatelessWidget {
                         color: Colors.purple,
                       ),
                     ),
-                    SizedBox(width: 30),
                     Text(
-                      DateFormat.yMMMEd().format(chosenPost.postDate),
+                      " . " + DateFormat.yMMMEd().format(chosenPost.postDate),
                       style: TextStyle(color: Colors.blueAccent),
                     )
                   ],
                 ),
               ),
+              SizedBox(height: 20),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
@@ -78,6 +79,9 @@ class postView extends StatelessWidget {
                     chosenPost.postTitle,
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
+                  ),
+                  SizedBox(
+                    height: 20,
                   ),
                   Text(
                     chosenPost.postContent,
@@ -108,7 +112,10 @@ class postView extends StatelessWidget {
                           width: 20,
                         ),
                         TextButton.icon(
-                          icon: Icon(Votes.comment_inv),
+                          icon: Icon(
+                            Votes.comment_alt,
+                            size: 18,
+                          ),
                           label: Text(chosenPost.commentsCounter.toString()),
                           onPressed: () {},
                           style: TextButton.styleFrom(primary: Colors.white),
@@ -117,7 +124,10 @@ class postView extends StatelessWidget {
                           width: 20,
                         ),
                         TextButton.icon(
-                          icon: Icon(Votes.upload),
+                          icon: Icon(
+                            Votes.upload,
+                            size: 18,
+                          ),
                           label: Text("Share"),
                           onPressed: () {},
                           style: TextButton.styleFrom(primary: Colors.white),
