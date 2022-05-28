@@ -51,6 +51,10 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  fonts:
+    - family: Votes
+      fonts:
+        - asset: assets/fonts/Votes.ttf
   assets:
     - assets/images/
 
