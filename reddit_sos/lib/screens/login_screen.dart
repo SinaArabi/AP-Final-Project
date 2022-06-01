@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:reddit_sos/line.dart';
+import '../icon.dart';
+import '../line.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+
 class LoginScreen extends StatefulWidget {
-  static const String id="login_screen";
+  static const String id = "login_screen";
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -38,13 +42,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromRGBO(106, 50, 159, 1), width: 1.0),
+                  borderSide: BorderSide(
+                      color: Color.fromRGBO(106, 50, 159, 1), width: 1.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromRGBO(106, 50, 159, 1), width: 3.0),
+                  borderSide: BorderSide(
+                      color: Color.fromRGBO(106, 50, 159, 1), width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -64,13 +68,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 enabledBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromRGBO(106, 50, 159, 1), width: 1.0),
+                  borderSide: BorderSide(
+                      color: Color.fromRGBO(106, 50, 159, 1), width: 1.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
-                  borderSide:
-                      BorderSide(color: Color.fromRGBO(106, 50, 159, 1), width: 3.0),
+                  borderSide: BorderSide(
+                      color: Color.fromRGBO(106, 50, 159, 1), width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -94,11 +98,29 @@ class _LoginScreenState extends State<LoginScreen> {
                     'Log In',
                   ),
                 ),
-
               ),
             ),
             const Line(),
-
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SignInButton(
+                  Buttons.Apple,
+                  onPressed: () {},
+                  mini: false,
+                ),
+                SignInButton(
+                  Buttons.Facebook,
+                  onPressed: () {},
+                  mini: false,
+                ),
+                SignInButton(
+                  Buttons.Google,
+                  onPressed: () {},
+                  mini: false,
+                ),
+              ],
+            )
           ],
         ),
       ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reddit_sos/screens/welcome_screen.dart';
 import 'package:reddit_sos/screens/login_screen.dart';
 import 'package:reddit_sos/screens/registration_screen.dart';
+import 'package:reddit_sos/setting.dart';
 
 void main() => runApp(FlashChat());
 
@@ -14,11 +15,12 @@ class FlashChat extends StatelessWidget {
           bodyText1: TextStyle(color: Colors.black54),
         ),
       ),
-      initialRoute: WelcomeScreen.id,
+      initialRoute: Setting.id,
       routes: {
         WelcomeScreen.id:(context)=>WelcomeScreen(),
         LoginScreen.id:(context)=>LoginScreen(),
         RegistrationScreen.id:(context)=>RegistrationScreen(),
+        Setting.id:(context)=>Setting(),
       },
     );
   }
