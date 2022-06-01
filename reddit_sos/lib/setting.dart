@@ -69,15 +69,22 @@ class _SettingScreenState extends State<Setting> {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text('Setting'),
+                    leading: Icon(Icons.people),
+                    title: Text('Community'),
                     onTap: () {
                       Navigator.pop(context);
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.exit_to_app),
-                    title: Text('Logout'),
+                    leading: Icon(Icons.save),
+                    title: Text('Saved Posts'),
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.info                ),
+                    title: Text('About'),
                     onTap: () {
                       Navigator.pop(context);
                     },
