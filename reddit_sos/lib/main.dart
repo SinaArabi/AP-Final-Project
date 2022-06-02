@@ -153,6 +153,11 @@ class defaultPage extends StatelessWidget {
     ),
   ];
 
+  List <subReddit> mySubreddits = [subReddit('Gta', "assets/images/gta.jpg", 56),
+  subReddit('Fifa22', "assets/images/7070023.jpg", 56),
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -165,7 +170,7 @@ class defaultPage extends StatelessWidget {
       home:
           // postView(myPost),
           // feed(myPosts),
-          addPost(),
+          addPost(mySubreddits),
 
     );
   }

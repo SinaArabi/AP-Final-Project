@@ -3,16 +3,27 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/icons.dart';
+import 'package:reddit_sos/subReddit.dart';
 import './post.dart';
 
 class addPost extends StatefulWidget {
-  const addPost({Key? key}) : super(key: key);
+  // const addPost({Key? key}) : super(key: key);
+  final List<subReddit> subRedditsList;
+  addPost(this.subRedditsList);
 
   @override
   State<addPost> createState() => _addPostState();
 }
 
 class _addPostState extends State<addPost> {
+  late String primaryValue;
+  @override
+  void initState() {
+    // TODO: implement initState
+    primaryValue = widget.subRedditsList[0].subId;
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,12 +51,19 @@ class _addPostState extends State<addPost> {
       body: Column(
         children: [
           Container(
-            child: PopupMenuButton(
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  child: Text("salam"),
-                ),
-              ],
+            child: DropdownButton<String>(
+              value: primaryValue,
+              items: widget.subRedditsList
+                  .map(
+                    (sub) => DropdownMenuItem<String>(
+                        value: sub.subId, child: Text(sub.subId)),
+                  )
+                  .toList(),
+              onChanged: (newValue) =>
+                setState(() {
+                  primaryValue = newValue!;
+                }),
+              
             ),
           ),
           Container(
@@ -60,7 +78,9 @@ class _addPostState extends State<addPost> {
                     hintStyle: TextStyle(color: Colors.white),
                   )),
                 ),
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 TextField(
                   style: TextStyle(color: Colors.white),
                   decoration: (InputDecoration(
