@@ -2,27 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:reddit_sos/icons.dart';
+import './post.dart';
 
-class addComment extends StatefulWidget {
-  const addComment({Key? key}) : super(key: key);
+class addComment extends StatelessWidget {
 
 
-class _addCommentState extends State<addComment> {
+  final post commentedPost;
+  addComment(this.commentedPost);
 
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        leading: TextButton.icon(
-            onPressed: () {},
-            icon: Icon(
-              Votes.cancel_1,
-            ),
-            label: Text("Add comment"),
-            style: TextButton.styleFrom(primary: Colors.white),
-            ),
+        leading: Wrap(
+          direction: Axis.vertical,
+          alignment: WrapAlignment.center,
+          children: [
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Votes.cancel_1,
+                  color: Colors.white,
+                )),
+                Text("Add comment", style: TextStyle(color: Colors.white, fontSize: 18),),
+          ],
+        ),
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
@@ -39,33 +44,24 @@ class _addCommentState extends State<addComment> {
       body: Column(
         children: [
           Container(
-            child: PopupMenuButton(
-              itemBuilder: (context) => [
-                PopupMenuItem(
-                  child: Text("salam"),
-                ),
-              ],
-            ),
-          ),
-          Container(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 TextField(
                   decoration: (InputDecoration(
-                    hintText: 'Add a title',
+                    enabled: false,
+                    hintText: commentedPost.postTitle,
                     floatingLabelBehavior: FloatingLabelBehavior.never,
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
                   )),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20,),
                 TextField(
+                  style: TextStyle(color: Colors.white),
                   decoration: (InputDecoration(
-                    hintText: 'Add a body text',
+                    hintText: 'Add your comment',
                     floatingLabelBehavior: FloatingLabelBehavior.never,
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: TextStyle(color: Colors.white, fontSize: 14),
                   )),
                 ),
               ]),
@@ -73,6 +69,7 @@ class _addCommentState extends State<addComment> {
           ),
         ],
       ),
+    
     );
   }
-}
+}  
