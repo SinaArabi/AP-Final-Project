@@ -60,12 +60,14 @@ class _addPostState extends State<addPost> {
               
               alignment: Alignment.centerLeft,
               child: DropdownButton<String>(
+                underline: SizedBox(),
                 hint: Text("Select subreddit"),
                 value: primaryValue,
+                dropdownColor: Colors.grey,
                 items: widget.subRedditsList
                     .map(
                       (sub) => DropdownMenuItem<String>(
-                          value: sub.subId, child: Text(sub.subId)),
+                          value: sub.subId, child: Text(sub.subId, style: TextStyle(color: Colors.white),)),
                     )
                     .toList(),
                 onChanged: (newValue) =>
