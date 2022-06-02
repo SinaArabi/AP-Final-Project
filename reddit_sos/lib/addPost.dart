@@ -36,17 +36,39 @@ class _addPostState extends State<addPost> {
           )
         ],
       ),
+      backgroundColor: Theme.of(context).primaryColor,
       body: Column(
         children: [
           Container(
-            child: PopupMenuButton(itemBuilder: (context) => [
-              PopupMenuItem(child: Text("salam"),),
-            ],),
+            child: PopupMenuButton(
+              itemBuilder: (context) => [
+                PopupMenuItem(
+                  child: Text("salam"),
+                ),
+              ],
+            ),
           ),
           Container(
-            child: Column(children: [
-              TextField(),
-            ]),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(children: [
+                TextField(
+                  decoration: (InputDecoration(
+                    hintText: 'Add a title',
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    hintStyle: TextStyle(color: Colors.white),
+                  )),
+                ),
+                SizedBox(height: 20,),
+                TextField(
+                  decoration: (InputDecoration(
+                    hintText: 'Add a body text',
+                    floatingLabelBehavior: FloatingLabelBehavior.never,
+                    hintStyle: TextStyle(color: Colors.white),
+                  )),
+                ),
+              ]),
+            ),
           ),
         ],
       ),
