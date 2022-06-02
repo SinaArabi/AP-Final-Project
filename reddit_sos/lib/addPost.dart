@@ -19,7 +19,6 @@ class _addPostState extends State<addPost> {
   late String primaryValue;
   @override
   void initState() {
-    // TODO: implement initState
     primaryValue = widget.subRedditsList[0].subId;
     super.initState();
   }
@@ -48,51 +47,62 @@ class _addPostState extends State<addPost> {
         ],
       ),
       backgroundColor: Theme.of(context).primaryColor,
-      body: Column(
-        children: [
-          Container(
-            child: DropdownButton<String>(
-              value: primaryValue,
-              items: widget.subRedditsList
-                  .map(
-                    (sub) => DropdownMenuItem<String>(
-                        value: sub.subId, child: Text(sub.subId)),
-                  )
-                  .toList(),
-              onChanged: (newValue) =>
-                setState(() {
-                  primaryValue = newValue!;
-                }),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 1, color: Colors.grey),
+                borderRadius: BorderRadius.circular(10),
+              ),
               
+              alignment: Alignment.centerLeft,
+              child: DropdownButton<String>(
+                hint: Text("Select subreddit"),
+                value: primaryValue,
+                items: widget.subRedditsList
+                    .map(
+                      (sub) => DropdownMenuItem<String>(
+                          value: sub.subId, child: Text(sub.subId)),
+                    )
+                    .toList(),
+                onChanged: (newValue) =>
+                  setState(() {
+                    primaryValue = newValue!;
+                  }),
+                
+              ),
             ),
-          ),
-          Container(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(children: [
-                TextField(
-                  style: TextStyle(color: Colors.white),
-                  decoration: (InputDecoration(
-                    hintText: 'Add a title',
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                    hintStyle: TextStyle(color: Colors.white),
-                  )),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                TextField(
-                  style: TextStyle(color: Colors.white),
-                  decoration: (InputDecoration(
-                    hintText: 'Add a body text',
-                    floatingLabelBehavior: FloatingLabelBehavior.never,
-                    hintStyle: TextStyle(color: Colors.white),
-                  )),
-                ),
-              ]),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(children: [
+                  TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: (InputDecoration(
+                      hintText: 'Add a title',
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      hintStyle: TextStyle(color: Colors.white),
+                    )),
+                  ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: (InputDecoration(
+                      hintText: 'Add a body text',
+                      floatingLabelBehavior: FloatingLabelBehavior.never,
+                      hintStyle: TextStyle(color: Colors.white),
+                    )),
+                  ),
+                ]),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
