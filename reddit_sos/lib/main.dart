@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/addComment.dart';
 import 'package:reddit_sos/comment.dart';
 import 'package:reddit_sos/post.dart';
 import 'package:reddit_sos/postView.dart';
@@ -34,7 +35,8 @@ class defaultPage extends StatelessWidget {
         selectedRowColor: Colors.grey.shade900,
         primaryColor: Color(0xff121110),
       ),
-      home: postView(myPost),
+      home: addComment(),
+      // postView(myPost),
     );
   }
 }
