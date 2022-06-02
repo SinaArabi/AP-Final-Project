@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:intl/intl.dart';
+import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/icons.dart';
+import './post.dart';
 
-class addComment extends StatefulWidget {
-  const addComment({Key? key}) : super(key: key);
+class addPost extends StatefulWidget {
+  const addPost({Key? key}) : super(key: key);
 
+  @override
+  State<addPost> createState() => _addPostState();
+}
 
-class _addCommentState extends State<addComment> {
-
-  
+class _addPostState extends State<addPost> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        leading: TextButton.icon(
+        leading: IconButton(
             onPressed: () {},
             icon: Icon(
               Votes.cancel_1,
-            ),
-            label: Text("Add comment"),
-            style: TextButton.styleFrom(primary: Colors.white),
-            ),
+              color: Colors.white,
+            )),
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: Theme.of(context).primaryColor),
             onPressed: () {},
             child: Text(
-              "Post",
+              "Done",
               style: TextStyle(color: Colors.white),
             ),
           )
@@ -58,9 +59,7 @@ class _addCommentState extends State<addComment> {
                     hintStyle: TextStyle(color: Colors.white),
                   )),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20,),
                 TextField(
                   decoration: (InputDecoration(
                     hintText: 'Add a body text',
