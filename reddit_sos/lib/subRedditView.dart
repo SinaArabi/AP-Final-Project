@@ -11,11 +11,40 @@ class subRedditView extends StatelessWidget {
   final subReddit chosenSubReddit;
   subRedditView(this.chosenSubReddit);
 
-
-   subRedditCard(){
+  subRedditCard() {
     return ListTile(
-      title:Text("r/" + chosenSubReddit.subId) ,
-    );
+      
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 25,),
+            Text("r/" + chosenSubReddit.subId, style: TextStyle(color: Colors.white, fontSize: 18)),
+          ],
+        ),
+        trailing: Wrap(
+          children: [
+            IconButton(
+              icon: Icon(Icons.notifications_none_rounded),
+              onPressed: () {},
+            ),
+            OutlinedButton(
+              onPressed: () {},
+              child: Text("Joined"),
+              
+            ),
+          ],
+        ),
+        
+        subtitle: Column(
+          
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 20),
+            Text(chosenSubReddit.members.toString() + " members", style: TextStyle(color: Colors.grey, fontSize: 12),),
+            Text(chosenSubReddit.aboutSub, style: TextStyle(color: Colors.white, fontSize: 14),)
+          ],
+        ),
+        );
   }
 
   @override
@@ -57,25 +86,27 @@ class subRedditView extends StatelessWidget {
         ],
       ),
       backgroundColor: Theme.of(context).primaryColor,
-      body: Column(children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              alignment: Alignment.bottomLeft,
-              width: 60,
-              height: 60,
-              child: ClipOval(
-                child: Image.asset(
-                  chosenSubReddit.image,
-                  fit: BoxFit.cover,
+      body: SafeArea(
+        child: Column(children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                alignment: Alignment.bottomLeft,
+                width: 60,
+                height: 60,
+                child: ClipOval(
+                  child: Image.asset(
+                    chosenSubReddit.image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            subRedditCard(),
-          ],
-        )
-      ]),
+              subRedditCard(),
+            ],
+          )
+        ]),
+      ),
     );
   }
 }

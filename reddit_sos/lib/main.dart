@@ -24,7 +24,7 @@ void main() {
 class defaultPage extends StatelessWidget {
   // const defaultPage({Key? key}) : super(key: key);
   post myPost = new post(
-      subReddit('Fifa22', "assets/images/7070023.jpg", 56),
+      subReddit('Fifa22', "assets/images/7070023.jpg", 56,"",[]),
       new user('Sina', [], "assets/images/7070023.jpg"),
       DateTime.now(),
       "Fifa update",
@@ -44,7 +44,7 @@ class defaultPage extends StatelessWidget {
 
   List<post> myPosts = [
     new post(
-      subReddit('Fifa22', "assets/images/7070023.jpg", 56),
+      subReddit('Fifa22', "assets/images/7070023.jpg", 56,"",[]),
       new user('Sina', [], "assets/images/7070023.jpg"),
       DateTime.now(),
       "Fifa update",
@@ -65,7 +65,7 @@ class defaultPage extends StatelessWidget {
       ],
     ),
     new post(
-      subReddit('Gta', "assets/images/gta.jpg", 56),
+      subReddit('Gta', "assets/images/gta.jpg", 56,"",[]),
       new user('Sina', [], "assets/images/7070023.jpg"),
       DateTime.now(),
       "Gta online update",
@@ -87,7 +87,7 @@ class defaultPage extends StatelessWidget {
       ],
     ),
     new post(
-      subReddit('Gta', "assets/images/7070023.jpg", 56),
+      subReddit('Gta', "assets/images/7070023.jpg", 56,"",[]),
       new user('Sina', [], "assets/images/7070023.jpg"),
       DateTime.now(),
       "Gta online update",
@@ -109,7 +109,7 @@ class defaultPage extends StatelessWidget {
       ],
     ),
     new post(
-      subReddit('Gta', "assets/images/gta.jpg", 56),
+      subReddit('Gta', "assets/images/gta.jpg", 56,"",[]),
       new user('Sina', [], "assets/images/7070023.jpg"),
       DateTime.now(),
       "Gta online update",
@@ -131,7 +131,7 @@ class defaultPage extends StatelessWidget {
       ],
     ),
     new post(
-      subReddit('Gta', "assets/images/gta.jpg", 56),
+      subReddit('Gta', "assets/images/gta.jpg", 56,"",[]),
       new user('Sina', [], "assets/images/7070023.jpg"),
       DateTime.now(),
       "Gta online update",
@@ -154,20 +154,20 @@ class defaultPage extends StatelessWidget {
     ),
   ];
 
-  List <subReddit> mySubreddits = [subReddit('Gta', "assets/images/gta.jpg", 56),
-  subReddit('Fifa22', "assets/images/7070023.jpg", 56),
+  List <subReddit> mySubreddits = [subReddit('Gta', "assets/images/gta.jpg", 56,"a bunch of idol people playing weird characters",[]),
+  subReddit('Fifa22', "assets/images/7070023.jpg", 56,"",[]),
       subReddit(
         "GOT",
         'https://movieposterhd.com/wp-content/uploads/2019/03/Game-of-Thrones-8-Season-iPhone-6-Wallpaper.jpg',
-        1001),
+        1001,"",[]),
     subReddit(
         "Programmers",
         'https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506',
-        20212),
+        20212,"",[]),
     subReddit(
         "GTA V",
         "https://images.unsplash.com/photo-1621364525332-f9c381f3bfe8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032",
-        5000000),
+        5000000,"",[]),
 
   ];
 
