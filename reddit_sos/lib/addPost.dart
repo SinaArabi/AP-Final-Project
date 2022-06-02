@@ -53,6 +53,7 @@ class _addPostState extends State<addPost> {
               padding: const EdgeInsets.all(8.0),
               child: Column(children: [
                 TextField(
+                  style: TextStyle(color: Colors.white),
                   decoration: (InputDecoration(
                     hintText: 'Add a title',
                     floatingLabelBehavior: FloatingLabelBehavior.never,
@@ -61,6 +62,7 @@ class _addPostState extends State<addPost> {
                 ),
                 SizedBox(height: 20,),
                 TextField(
+                  style: TextStyle(color: Colors.white),
                   decoration: (InputDecoration(
                     hintText: 'Add a body text',
                     floatingLabelBehavior: FloatingLabelBehavior.never,

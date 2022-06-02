@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:reddit_sos/addPost.dart';
+
+
+
+import 'package:reddit_sos/addPost.dart';
+
+
 import 'package:reddit_sos/comment.dart';
 import 'package:reddit_sos/post.dart';
 import 'package:reddit_sos/postView.dart';
@@ -159,6 +166,7 @@ class defaultPage extends StatelessWidget {
           // postView(myPost),
           // feed(myPosts),
           addPost(),
+
     );
   }
 }
