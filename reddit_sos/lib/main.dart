@@ -10,6 +10,7 @@ import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/comment.dart';
 import 'package:reddit_sos/post.dart';
 import 'package:reddit_sos/postView.dart';
+import 'package:reddit_sos/subRedditView.dart';
 import 'package:reddit_sos/user.dart';
 import './tabs_screen.dart';
 import './subReddit.dart';
@@ -182,7 +183,8 @@ class defaultPage extends StatelessWidget {
       home:
           // postView(myPost),
           // feed(myPosts),
-          addPost(mySubreddits),
+          // addPost(mySubreddits),
+          subRedditView(mySubreddits.first),
 
     );
   }
