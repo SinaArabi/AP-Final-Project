@@ -31,7 +31,7 @@ class _SettingScreenState extends State<Setting> {
                           CircleAvatar(
                             radius: 50.0,
                             backgroundImage:
-                            Image.asset('assets/profile.jpg').image,
+                            Image.asset('assets/images/profile.jpg').image,
                           ),
                           SizedBox(
                             height: 10.0,
