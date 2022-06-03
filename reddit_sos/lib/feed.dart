@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/icons.dart';
+import 'package:reddit_sos/postView.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 import './post.dart';
 import './commentDisplay.dart';
@@ -12,13 +13,21 @@ class feed extends StatelessWidget {
   final List<post> posts;
   feed(this.posts);
 
-  postComponent(post thePost) {
+  postComponent(post thePost, context) {
     return SafeArea(
       child: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
           children: [
             ListTile(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => postView(thePost),
+                  ),
+                );
+              },
               contentPadding: EdgeInsets.only(left: 0, right: 0),
               leading: Container(
                 width: 60,
@@ -123,7 +132,6 @@ class feed extends StatelessWidget {
                 )
               ],
             ),
-            // tabsScreen(),
           ],
         ),
       ),
@@ -166,7 +174,7 @@ class feed extends StatelessWidget {
               child: ListView.builder(
                   itemCount: posts.length,
                   itemBuilder: (context, index) {
-                    return postComponent(posts[index]);
+                    return postComponent(posts[index], context);
                   }),
             ),
           ],
