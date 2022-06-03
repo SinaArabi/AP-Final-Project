@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
@@ -27,7 +29,7 @@ class subRedditView extends StatelessWidget {
       trailing: Wrap(
         children: [
           IconButton(
-            icon: Icon(Icons.notifications_none_rounded),
+            icon: Icon(Icons.notifications_none_rounded, color: Colors.white,),
             onPressed: () {},
           ),
           OutlinedButton(
@@ -71,9 +73,7 @@ class subRedditView extends StatelessWidget {
                   ),
                 ),
               ),
-              title: 
-              // subtitle: 
-              Row(
+              title: Row(
                 children: [
                   Text(
                     "u/" + thePost.poster.UserName,
@@ -208,12 +208,14 @@ class subRedditView extends StatelessWidget {
       body: SafeArea(
         child: Column(children: [
           Column(
-            // crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              SizedBox(
+                height: 10,
+              ),
               Container(
-                alignment: Alignment.bottomLeft,
-                width: 60,
-                height: 60,
+                width: 80,
+                height: 80,
                 child: ClipOval(
                   child: Image.asset(
                     chosenSubReddit.image,
@@ -242,13 +244,12 @@ class subRedditView extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             child: ListView.builder(
-                                  itemCount:
-                                      chosenSubReddit.subRedditPosts.length,
-                                  itemBuilder: (context, index) {
-                                    return subRedditPostComponent(
-                                        chosenSubReddit.subRedditPosts[index]);
-                                  }),
-                            
+                                itemCount:
+                                    chosenSubReddit.subRedditPosts.length,
+                                itemBuilder: (context, index) {
+                                  return subRedditPostComponent(
+                                      chosenSubReddit.subRedditPosts[index]);
+                                }),
                           ),
                           Container(
                             child: Center(
