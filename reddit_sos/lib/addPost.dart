@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/subReddit.dart';
 import './post.dart';
+import './tabs_screen.dart';
 
 class addPost extends StatefulWidget {
   static const String id = "addPost_screen";
@@ -29,7 +30,7 @@ class _addPostState extends State<addPost> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
         leading: IconButton(
-            onPressed: () {},
+            onPressed: () {Navigator.pushNamed(context, tabsScreen.id );},
             icon: Icon(
               Votes.cancel_1,
               color: Colors.white,
@@ -38,7 +39,7 @@ class _addPostState extends State<addPost> {
           ElevatedButton(
             style: ElevatedButton.styleFrom(
                 primary: Theme.of(context).primaryColor),
-            onPressed: () {},
+            onPressed:  () {Navigator.pushNamed(context, tabsScreen.id );},
             child: Text(
               "Done",
               style: TextStyle(color: Colors.white),
