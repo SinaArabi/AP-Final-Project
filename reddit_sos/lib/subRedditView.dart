@@ -53,6 +53,123 @@ class subRedditView extends StatelessWidget {
     );
   }
 
+  subRedditPostComponent(post thePost) {
+    return SafeArea(
+      child: Padding(
+        padding: EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            ListTile(
+              contentPadding: EdgeInsets.only(left: 0, right: 0),
+              leading: Container(
+                width: 60,
+                height: 60,
+                child: ClipOval(
+                  child: Image.asset(
+                    thePost.postSource.image,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              title: Text(
+                "r/" + thePost.postSource.subName,
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+              subtitle: Row(
+                children: [
+                  Text(
+                    "u/" + thePost.poster.UserName,
+                    style: TextStyle(
+                      color: Colors.purple,
+                    ),
+                  ),
+                  Text(
+                    " . " + DateFormat.yMMMEd().format(thePost.postDate),
+                    style: TextStyle(color: Colors.blueAccent),
+                  ),
+                ],
+              ),
+              trailing: IconButton(
+                icon: Icon(Icons.more_horiz),
+                color: Colors.white,
+                onPressed: () {},
+              ),
+            ),
+            SizedBox(height: 20),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  thePost.postTitle,
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.white),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  thePost.postContent,
+                  style: TextStyle(color: Colors.white),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  child: Row(
+                    children: [
+                      TextButton.icon(
+                        icon: Icon(
+                          Votes.up_bold,
+                        ),
+                        label: Text(thePost.upVotes.toString()),
+                        onPressed: () {},
+                        style: TextButton.styleFrom(primary: Colors.white),
+                      ),
+                      IconButton(
+                        icon: Icon(
+                          Votes.down_bold,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {},
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      TextButton.icon(
+                        icon: Icon(
+                          Votes.comment_alt,
+                          size: 18,
+                        ),
+                        label: Text(thePost.commentsCounter.toString()),
+                        onPressed: () {},
+                        style: TextButton.styleFrom(primary: Colors.white),
+                      ),
+                      SizedBox(
+                        width: 20,
+                      ),
+                      TextButton.icon(
+                        icon: Icon(
+                          Votes.upload,
+                          size: 18,
+                        ),
+                        label: Text("Share"),
+                        onPressed: () {},
+                        style: TextButton.styleFrom(primary: Colors.white),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -116,14 +233,11 @@ class subRedditView extends StatelessWidget {
                   children: [
                     Container(
                       child: TabBar(
-                        
                           labelColor: Colors.purple,
                           unselectedLabelColor: Colors.white,
                           tabs: [
-                            Tab(
-                                child: Text("Posts")),
-                            Tab(
-                                child:Text("About")),
+                            Tab(child: Text("Posts")),
+                            Tab(child: Text("About")),
                           ]),
                     ),
                     SizedBox(
@@ -131,17 +245,22 @@ class subRedditView extends StatelessWidget {
                       child: TabBarView(
                         children: <Widget>[
                           Container(
-                            child: Center(
-                              child: Text('Display Tab 1'),
-                                  
-                            ),
+                            child: ListView.builder(
+                                  itemCount:
+                                      chosenSubReddit.subRedditPosts.length,
+                                  itemBuilder: (context, index) {
+                                    return subRedditPostComponent(
+                                        chosenSubReddit.subRedditPosts[index]);
+                                  }),
+                            
                           ),
                           Container(
                             child: Center(
                               child: Text(chosenSubReddit.aboutSub,
                                   style: TextStyle(
                                       fontSize: 24,
-                                      fontWeight: FontWeight.bold, color: Colors.white)),
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white)),
                             ),
                           ),
                         ],
@@ -150,9 +269,8 @@ class subRedditView extends StatelessWidget {
                   ],
                 ),
               ),
-              
             ],
-          )
+          ),
         ]),
       ),
     );
