@@ -71,13 +71,9 @@ class subRedditView extends StatelessWidget {
                   ),
                 ),
               ),
-              title: Text(
-                "r/" + thePost.postSource.subName,
-                style: TextStyle(
-                  color: Colors.white,
-                ),
-              ),
-              subtitle: Row(
+              title: 
+              // subtitle: 
+              Row(
                 children: [
                   Text(
                     "u/" + thePost.poster.UserName,
