@@ -13,13 +13,16 @@ import './tabs_screen.dart';
 import './subReddit.dart';
 import './subRedditPage.dart';
 import './feed.dart';
+import 'package:reddit_sos/screens/EditProfile.dart';
+import 'package:reddit_sos/screens/welcome_screen.dart';
+import 'package:reddit_sos/screens/login_screen.dart';
+import 'package:reddit_sos/screens/registration_screen.dart';
+import 'package:reddit_sos/setting.dart';
 
-void main() {
-  runApp(defaultPage());
-}
+void main() => runApp(Reddit());
 
-class defaultPage extends StatelessWidget {
-  // const defaultPage({Key? key}) : super(key: key);
+class Reddit extends StatelessWidget {
+  
   post myPost = new post(
       subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
       new user('Sina', [], "assets/images/7070023.jpg"),
@@ -277,12 +280,21 @@ class defaultPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      initialRoute: Setting.id,
+      routes: {
+        WelcomeScreen.id:(context)=>WelcomeScreen(),
+        LoginScreen.id:(context)=>LoginScreen(),
+        RegistrationScreen.id:(context)=>RegistrationScreen(),
+        Setting.id:(context)=>Setting(),
+        EditProfile.id:(context)=>EditProfile(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'defaultPage',
       theme: ThemeData(
         selectedRowColor: Colors.grey.shade900,
         primaryColor: Color(0xff121110),
       ),
+
       home:
           // postView(myPost),
           // feed(myPosts),
@@ -290,6 +302,8 @@ class defaultPage extends StatelessWidget {
           subRedditPage(mySubreddits),
       // subRedditView(mySubreddits.first),
       // tabsScreen(),
+    
     );
+    
   }
 }
