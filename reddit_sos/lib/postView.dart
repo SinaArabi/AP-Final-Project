@@ -3,12 +3,19 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/icons.dart';
-
+import 'main.dart';
 import './post.dart';
 import './commentDisplay.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:reddit_sos/feed.dart';
+import 'package:reddit_sos/icons.dart';
+import 'package:reddit_sos/subReddit.dart';
+import 'package:reddit_sos/subRedditPage.dart';
+import 'package:reddit_sos/tabs_screen.dart';
+import './post.dart';
 
 class postView extends StatelessWidget {
-  // const postView({Key? key}) : super(key: key);
+  
 
   final post chosenPost;
   postView(this.chosenPost);
@@ -18,7 +25,7 @@ class postView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        leading: Icon(Icons.arrow_back_rounded),
+        leading: IconButton(icon: Icon(Icons.arrow_back_rounded), onPressed: () {Navigator.pushNamed(context, tabsScreen.id );} ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
