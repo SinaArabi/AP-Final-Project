@@ -30,8 +30,11 @@ class _tabsScreenState extends State<tabsScreen> {
         children: [
           Container(
             color: Colors.red,
+            
           ),
-          subRedditPage(),
+          Container(
+            color: Colors.blue,
+          ),
           Container(
             color: Colors.green,
           ),
