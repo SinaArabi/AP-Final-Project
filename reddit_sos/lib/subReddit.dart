@@ -4,7 +4,8 @@ class subReddit {
   String subName;
   String image;
   int members;
-  List <post> subRedditPosts;
+  List<post> subRedditPosts;
   String aboutSub;
-  subReddit(this.subName, this.image, this.members, this.aboutSub, this.subRedditPosts);
+  subReddit(this.subName, this.image, this.members, this.aboutSub,
+      this.subRedditPosts);
 }

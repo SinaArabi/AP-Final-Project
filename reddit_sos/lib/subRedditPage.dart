@@ -3,39 +3,41 @@ import './subReddit.dart';
 
 class subRedditPage extends StatefulWidget {
   // const subRedditPage({Key key}) : super(key: key);
+  final List <subReddit> _subs ;
+  subRedditPage(this._subs);
 
   @override
   State<subRedditPage> createState() => _subRedditPageState();
 }
 
 class _subRedditPageState extends State<subRedditPage> {
-  List<subReddit> _subs = [
-    subReddit(
-        "GOT",
-        'https://movieposterhd.com/wp-content/uploads/2019/03/Game-of-Thrones-8-Season-iPhone-6-Wallpaper.jpg',
-        1001,"",[]),
-    subReddit(
-        "Programmers",
-        'https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506',
-        20212,"",[]),
-    subReddit(
-        "GTA V",
-        "https://images.unsplash.com/photo-1621364525332-f9c381f3bfe8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032",
-        5000000,"",[]),
-  ];
+  // List<subReddit> _subs = [
+  //   subReddit(
+  //       "GOT",
+  //       'https://movieposterhd.com/wp-content/uploads/2019/03/Game-of-Thrones-8-Season-iPhone-6-Wallpaper.jpg',
+  //       1001,"",[]),
+  //   subReddit(
+  //       "Programmers",
+  //       'https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506',
+  //       20212,"",[]),
+  //   subReddit(
+  //       "GTA V",
+  //       "https://images.unsplash.com/photo-1621364525332-f9c381f3bfe8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032",
+  //       5000000,"",[]),
+  // ];
 
   List<subReddit> _foundSubs = [];
   initState() {
-    _foundSubs = _subs;
+    _foundSubs = widget._subs;
     super.initState();
   }
 
   void _runSearch(String enteredKeyword) {
     List<subReddit> searchedSubs = [];
     if (enteredKeyword.isEmpty) {
-      searchedSubs = _subs;
+      searchedSubs = widget._subs;
     } else {
-      searchedSubs = _subs
+      searchedSubs = widget._subs
           .where((sub) =>
               sub.subName.toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
@@ -47,34 +49,38 @@ class _subRedditPageState extends State<subRedditPage> {
   }
 
   subComponent(subName, image, members) {
-    return Card(
-        color: Theme.of(context).selectedRowColor,
-        child: Row(
-          children: [
-            Container(
-              width: 60,
-              height: 60,
-              child: ClipOval(
-                child: Image.network(
-                  image,
-                  fit: BoxFit.cover,
+    return InkWell(
+      // onTap: ,
+      child: Card(
+        
+          color: Theme.of(context).selectedRowColor,
+          child: Row(
+            children: [
+              Container(
+                width: 60,
+                height: 60,
+                child: ClipOval(
+                  child: Image.network(
+                    image,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Container(
-              child: Text(
-                "r/" + subName,
-                style: TextStyle(
-                  color: Colors.white,
+              SizedBox(
+                width: 10,
+              ),
+              Container(
+                child: Text(
+                  "r/" + subName,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      );
+    );
   }
 
   @override
