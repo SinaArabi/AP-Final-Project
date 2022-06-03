@@ -1,4 +1,4 @@
-import 'dart:ffi';
+
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -10,7 +10,7 @@ import 'package:reddit_sos/subReddit.dart';
 import './post.dart';
 
 class subRedditView extends StatelessWidget {
-  static const String id="subRedditView_screen";
+  static const String id="_screen";
   final subReddit chosenSubReddit;
   subRedditView(this.chosenSubReddit);
 

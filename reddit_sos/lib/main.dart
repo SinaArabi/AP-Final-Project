@@ -289,7 +289,7 @@ class Reddit extends StatelessWidget {
         tabsScreen.id:(context) => tabsScreen(),
         subRedditPage.id:(context) => subRedditPage(mySubreddits),
         addPost.id:(context) => addPost(mySubreddits),
-        subRedditView.id:(context) => subRedditView(mySubreddits.first)
+        subRedditView.id:(context) => subRedditView(mySubreddits.first),
 
       },
       debugShowCheckedModeBanner: false,

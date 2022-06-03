@@ -1,4 +1,4 @@
-import 'dart:js';
+
 
 import 'package:flutter/material.dart';
 import 'package:reddit_sos/subRedditView.dart';
@@ -6,7 +6,7 @@ import './subReddit.dart';
 
 class subRedditPage extends StatefulWidget {
   static const String id = "subRedditPage_screen";
-  final List <subReddit> _subs ;
+  final List<subReddit> _subs;
   subRedditPage(this._subs);
 
   @override
@@ -14,7 +14,6 @@ class subRedditPage extends StatefulWidget {
 }
 
 class _subRedditPageState extends State<subRedditPage> {
-
   List<subReddit> _foundSubs = [];
   initState() {
     _foundSubs = widget._subs;
@@ -37,37 +36,33 @@ class _subRedditPageState extends State<subRedditPage> {
     });
   }
 
-  subComponent(subName, image, members, index) {
-    return InkWell(
-      // onTap:Navigator.push(context, MaterialPageRoute(builder: (context) => subRedditView(_foundSubs[index]))),
-      child: Card(
-          color: Theme.of(context).selectedRowColor,
-          child: Row(
-            children: [
-              Container(
-                width: 60,
-                height: 60,
-                child: ClipOval(
-                  child: Image.network(
-                    image,
-                    fit: BoxFit.cover,
-                  ),
-                ),
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                child: Text(
-                  "r/" + subName,
-                  style: TextStyle(
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ],
+  subComponent(sub, context) {
+    return ListTile(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => subRedditView(sub),
+          ),
+        );
+      },
+      contentPadding: EdgeInsets.only(left: 0, right: 0),
+      leading: Container(
+        width: 60,
+        height: 60,
+        child: ClipOval(
+          child: Image.asset(
+            sub.image,
+            fit: BoxFit.cover,
           ),
         ),
+      ),
+      title: Text(
+        "r/" + sub.subName,
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      ),
     );
   }
 
@@ -107,8 +102,9 @@ class _subRedditPageState extends State<subRedditPage> {
               child: ListView.builder(
                   itemCount: _foundSubs.length,
                   itemBuilder: (context, index) {
-                    return subComponent(_foundSubs[index].subName,
-                        _foundSubs[index].image, _foundSubs[index].members, index);
+                    return subComponent(
+                      _foundSubs[index], context
+                    );
                   }),
             ),
           ],
