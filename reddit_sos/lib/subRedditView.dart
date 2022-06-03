@@ -10,7 +10,7 @@ import 'package:reddit_sos/subReddit.dart';
 import './post.dart';
 
 class subRedditView extends StatelessWidget {
-  // const subRedditView({Key? key}) : super(key: key);
+  static const String id="subRedditView_screen";
   final subReddit chosenSubReddit;
   subRedditView(this.chosenSubReddit);
 

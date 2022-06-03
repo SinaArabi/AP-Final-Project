@@ -1,4 +1,7 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/subRedditView.dart';
 import './subReddit.dart';
 
 class subRedditPage extends StatefulWidget {
@@ -11,20 +14,6 @@ class subRedditPage extends StatefulWidget {
 }
 
 class _subRedditPageState extends State<subRedditPage> {
-  // List<subReddit> _subs = [
-  //   subReddit(
-  //       "GOT",
-  //       'https://movieposterhd.com/wp-content/uploads/2019/03/Game-of-Thrones-8-Season-iPhone-6-Wallpaper.jpg',
-  //       1001,"",[]),
-  //   subReddit(
-  //       "Programmers",
-  //       'https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506',
-  //       20212,"",[]),
-  //   subReddit(
-  //       "GTA V",
-  //       "https://images.unsplash.com/photo-1621364525332-f9c381f3bfe8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032",
-  //       5000000,"",[]),
-  // ];
 
   List<subReddit> _foundSubs = [];
   initState() {
@@ -48,11 +37,10 @@ class _subRedditPageState extends State<subRedditPage> {
     });
   }
 
-  subComponent(subName, image, members) {
+  subComponent(subName, image, members, index) {
     return InkWell(
-      // onTap: ,
+      // onTap:Navigator.push(context, MaterialPageRoute(builder: (context) => subRedditView(_foundSubs[index]))),
       child: Card(
-        
           color: Theme.of(context).selectedRowColor,
           child: Row(
             children: [
@@ -120,7 +108,7 @@ class _subRedditPageState extends State<subRedditPage> {
                   itemCount: _foundSubs.length,
                   itemBuilder: (context, index) {
                     return subComponent(_foundSubs[index].subName,
-                        _foundSubs[index].image, _foundSubs[index].members);
+                        _foundSubs[index].image, _foundSubs[index].members, index);
                   }),
             ),
           ],
