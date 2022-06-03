@@ -19,7 +19,7 @@ class _SettingScreenState extends State<Setting> {
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
                 colors: [
-                  Colors.black,
+                  Color.fromRGBO(0, 0, 0, 1),
                 ],
               ),
             ),
@@ -46,49 +46,75 @@ class _SettingScreenState extends State<Setting> {
                         'Salar Jahanshiri',
                         style: TextStyle(
                           fontSize: 20.0,
-                          color: Colors.white,
+                          color: Color.fromRGBO(106, 50, 159, 1),
                         ),
                       ),
-
                     ],
                   ),
                 ),
-                Expanded(child: ListView(children: [
+                Expanded(
+                    child: ListView(children: [
                   ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text('Home'),
+                    leading: Icon(Icons.home,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                    title: Text(
+                      'Home',
+                      style: TextStyle(
+                        color: Color.fromRGBO(106, 50, 159, 1)
+                      ),
+                    ),
                     onTap: () {
                       Navigator.pop(context);
                     },
                   ),
-                  ListTile(
-                    leading: Icon(Icons.person),
-                    title: Text('Edit Profile'),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.people),
-                    title: Text('Community'),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.save),
-                    title: Text('Saved Posts'),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.info                ),
-                    title: Text('About'),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
+                      ListTile(
+                        leading: Icon(Icons.person,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                        title: Text(
+                          'Edit Profile',
+                          style: TextStyle(
+                              color: Color.fromRGBO(106, 50, 159, 1)
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.people,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                        title: Text(
+                          'Community',
+                          style: TextStyle(
+                              color: Color.fromRGBO(106, 50, 159, 1)
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.save,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                        title: Text(
+                          'Saved Post',
+                          style: TextStyle(
+                              color: Color.fromRGBO(106, 50, 159, 1),
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ListTile(
+                        leading: Icon(Icons.info,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                        title: Text(
+                          'About',
+                          style: TextStyle(
+                              color: Color.fromRGBO(106, 50, 159, 1)
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+
                 ])),
               ],
             ),
