@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
+import 'package:reddit_sos/feed.dart';
 import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/subReddit.dart';
 import './post.dart';
@@ -13,38 +14,43 @@ class subRedditView extends StatelessWidget {
 
   subRedditCard() {
     return ListTile(
-      
-        title: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 25,),
-            Text("r/" + chosenSubReddit.subId, style: TextStyle(color: Colors.white, fontSize: 18)),
-          ],
-        ),
-        trailing: Wrap(
-          children: [
-            IconButton(
-              icon: Icon(Icons.notifications_none_rounded),
-              onPressed: () {},
-            ),
-            OutlinedButton(
-              onPressed: () {},
-              child: Text("Joined"),
-              
-            ),
-          ],
-        ),
-        
-        subtitle: Column(
-          
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 20),
-            Text(chosenSubReddit.members.toString() + " members", style: TextStyle(color: Colors.grey, fontSize: 12),),
-            Text(chosenSubReddit.aboutSub, style: TextStyle(color: Colors.white, fontSize: 14),)
-          ],
-        ),
-        );
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            height: 25,
+          ),
+          Text("r/" + chosenSubReddit.subId,
+              style: TextStyle(color: Colors.white, fontSize: 18)),
+        ],
+      ),
+      trailing: Wrap(
+        children: [
+          IconButton(
+            icon: Icon(Icons.notifications_none_rounded),
+            onPressed: () {},
+          ),
+          OutlinedButton(
+            onPressed: () {},
+            child: Text("Joined"),
+          ),
+        ],
+      ),
+      subtitle: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(height: 20),
+          Text(
+            chosenSubReddit.members.toString() + " members",
+            style: TextStyle(color: Colors.grey, fontSize: 12),
+          ),
+          Text(
+            chosenSubReddit.aboutSub,
+            style: TextStyle(color: Colors.white, fontSize: 14),
+          )
+        ],
+      ),
+    );
   }
 
   @override
@@ -89,7 +95,7 @@ class subRedditView extends StatelessWidget {
       body: SafeArea(
         child: Column(children: [
           Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            // crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
                 alignment: Alignment.bottomLeft,
@@ -103,6 +109,50 @@ class subRedditView extends StatelessWidget {
                 ),
               ),
               subRedditCard(),
+              DefaultTabController(
+                length: 2,
+                initialIndex: 0,
+                child: Column(
+                  children: [
+                    Container(
+                      child: TabBar(
+                        
+                          labelColor: Colors.purple,
+                          unselectedLabelColor: Colors.white,
+                          tabs: [
+                            Tab(
+                                child: Text("Posts")),
+                            Tab(
+                                child:Text("About")),
+                          ]),
+                    ),
+                    SizedBox(
+                      height: 400,
+                      child: TabBarView(
+                        children: <Widget>[
+                          Container(
+                            child: Center(
+                              child: Text('Display Tab 1',
+                                  style: TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold)),
+                            ),
+                          ),
+                          Container(
+                            child: Center(
+                              child: Text(chosenSubReddit.aboutSub,
+                                  style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.bold, color: Colors.white)),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              // feed(chosenSubReddit.subRedditPosts),
             ],
           )
         ]),
