@@ -17,7 +17,7 @@ import 'package:reddit_sos/screens/registration_screen.dart';
 import 'package:reddit_sos/setting.dart';
 
 class tabsScreen extends StatefulWidget {
-
+  static const String id = "tab_screen";
   List<post> myPosts = [
     new post(
       subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
@@ -271,24 +271,17 @@ class _tabsScreenState extends State<tabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Menu')),
-      // body: _pages[_selectedPageIndex],
+      appBar: AppBar(title: Text('Reddit')),
       body: PageView(
         controller: pageController,
         children: [
           feed(widget.myPosts),
-          Container(
-            color: Colors.blue,
-          ),
-          Container(
-            color: Colors.green,
-          ),
+          subRedditPage(widget.mySubreddits),
+          addPost(widget.mySubreddits),
           Container(
             color: Colors.pink,
           ),
-          Container(
-            color: Colors.yellow,
-          ),
+          Setting(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -325,7 +318,7 @@ class _tabsScreenState extends State<tabsScreen> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.notifications_none_outlined,
+              Icons.settings_outlined,
               color: Colors.white,
             ),
             label: '',

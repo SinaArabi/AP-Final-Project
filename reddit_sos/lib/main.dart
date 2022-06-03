@@ -277,7 +277,8 @@ class Reddit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: WelcomeScreen.id,
+      initialRoute: tabsScreen.id,
+      // WelcomeScreen.id,
       routes: {
         WelcomeScreen.id:(context)=>WelcomeScreen(),
         LoginScreen.id:(context)=>LoginScreen(),
@@ -285,6 +286,9 @@ class Reddit extends StatelessWidget {
         Setting.id:(context)=>Setting(),
         EditProfile.id:(context)=>EditProfile(),
         feed.id:(context) => feed(myPosts),
+        tabsScreen.id:(context) => tabsScreen(),
+        subRedditPage.id:(context) => subRedditPage(mySubreddits),
+        addPost.id:(context) => addPost(mySubreddits),
 
       },
       debugShowCheckedModeBanner: false,

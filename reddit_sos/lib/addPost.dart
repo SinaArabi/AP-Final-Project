@@ -7,7 +7,7 @@ import 'package:reddit_sos/subReddit.dart';
 import './post.dart';
 
 class addPost extends StatefulWidget {
-  // const addPost({Key? key}) : super(key: key);
+  static const String id = "addPost_screen";
   final List<subReddit> subRedditsList;
   addPost(this.subRedditsList);
 

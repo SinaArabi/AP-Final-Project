@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './subReddit.dart';
 
 class subRedditPage extends StatefulWidget {
-  // const subRedditPage({Key key}) : super(key: key);
+  static const String id = "subRedditPage_screen";
   final List <subReddit> _subs ;
   subRedditPage(this._subs);
 
