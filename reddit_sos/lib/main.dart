@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/screens/EditProfile.dart';
 import 'package:reddit_sos/screens/welcome_screen.dart';
 import 'package:reddit_sos/screens/login_screen.dart';
 import 'package:reddit_sos/screens/registration_screen.dart';
 import 'package:reddit_sos/setting.dart';
 
-void main() => runApp(FlashChat());
+void main() => runApp(Reddit());
 
-class FlashChat extends StatelessWidget {
+class Reddit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,6 +22,8 @@ class FlashChat extends StatelessWidget {
         LoginScreen.id:(context)=>LoginScreen(),
         RegistrationScreen.id:(context)=>RegistrationScreen(),
         Setting.id:(context)=>Setting(),
+        EditProfile.id:(context)=>EditProfile(),
+
       },
     );
   }

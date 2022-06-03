@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class EditProfile extends StatefulWidget {
-  static const String id="registration_screen";
+  static const String id="EditProfile_screen";
   @override
   _EditProfile createState() => _EditProfile();
 }
