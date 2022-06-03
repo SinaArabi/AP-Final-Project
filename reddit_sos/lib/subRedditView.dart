@@ -29,12 +29,19 @@ class subRedditView extends StatelessWidget {
       trailing: Wrap(
         children: [
           IconButton(
-            icon: Icon(Icons.notifications_none_rounded, color: Colors.white,),
+            icon: Icon(
+              Icons.notifications_none_rounded,
+              color: Colors.white,
+            ),
             onPressed: () {},
           ),
           OutlinedButton(
+            style: OutlinedButton.styleFrom(
+              primary: Colors.white,
+              backgroundColor: Colors.teal,
+            ),
             onPressed: () {},
-            child: Text("Joined"),
+            child: Text("Joined"), //need to check if user is joined or not!
           ),
         ],
       ),
