@@ -26,7 +26,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   Row(
                     children: <Widget>[
                       Container(
-                        child: Image.asset('assets/logo.png'),
+                        child: Image.asset('assets/images/logo.png'),
                         height: 100.0,
                       ),
                       Text(

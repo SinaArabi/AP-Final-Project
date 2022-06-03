@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:reddit_sos/addPost.dart';
-
 import 'package:reddit_sos/addPost.dart';
-
 import 'package:reddit_sos/comment.dart';
 import 'package:reddit_sos/post.dart';
 import 'package:reddit_sos/postView.dart';
@@ -280,13 +277,15 @@ class Reddit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: Setting.id,
+      initialRoute: WelcomeScreen.id,
       routes: {
         WelcomeScreen.id:(context)=>WelcomeScreen(),
         LoginScreen.id:(context)=>LoginScreen(),
         RegistrationScreen.id:(context)=>RegistrationScreen(),
         Setting.id:(context)=>Setting(),
         EditProfile.id:(context)=>EditProfile(),
+        feed.id:(context) => feed(myPosts),
+
       },
       debugShowCheckedModeBanner: false,
       title: 'defaultPage',
@@ -295,13 +294,7 @@ class Reddit extends StatelessWidget {
         primaryColor: Color(0xff121110),
       ),
 
-      home:
-          // postView(myPost),
-          // feed(myPosts),
-          // addPost(mySubreddits),
-          subRedditPage(mySubreddits),
-      // subRedditView(mySubreddits.first),
-      // tabsScreen(),
+
     
     );
     

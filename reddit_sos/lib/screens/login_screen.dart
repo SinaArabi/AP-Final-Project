@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/feed.dart';
 import '../icon.dart';
 import '../line.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -24,18 +25,20 @@ class _LoginScreenState extends State<LoginScreen> {
             Container(
               height: 200.0,
               child: Image(
-                image: AssetImage("assets/logo.png"),
+                image: AssetImage("assets/images/logo.png"),
               ),
             ),
             SizedBox(
               height: 48.0,
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               onChanged: (value) {
                 //Do something with the user input.
               },
               decoration: InputDecoration(
                 hintText: 'Enter your email',
+                hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
@@ -57,11 +60,13 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 8.0,
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               onChanged: (value) {
                 //Do something with the user input.
               },
               decoration: InputDecoration(
                 hintText: 'Enter your password.',
+                hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
@@ -90,12 +95,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    //Implement login functionality.
+                    Navigator.pushNamed(context, feed.id);
                   },
                   minWidth: 200.0,
                   height: 42.0,
                   child: Text(
-                    'Log In',
+                    'Submit',
                   ),
                 ),
               ),

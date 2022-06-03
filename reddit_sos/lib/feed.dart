@@ -7,7 +7,7 @@ import './post.dart';
 import './commentDisplay.dart';
 
 class feed extends StatelessWidget {
-  // const feed({Key? key}) : super(key: key);
+  static const String id = "feed_screen";
   final List<post> posts;
   feed(this.posts);
 
