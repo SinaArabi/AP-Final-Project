@@ -19,7 +19,7 @@ class _addPostState extends State<addPost> {
   late String primaryValue;
   @override
   void initState() {
-    primaryValue = widget.subRedditsList[0].subId;
+    primaryValue = widget.subRedditsList[0].subName;
     super.initState();
   }
 
@@ -67,7 +67,7 @@ class _addPostState extends State<addPost> {
                 items: widget.subRedditsList
                     .map(
                       (sub) => DropdownMenuItem<String>(
-                          value: sub.subId, child: Text(sub.subId, style: TextStyle(color: Colors.white),)),
+                          value: sub.subName, child: Text(sub.subName, style: TextStyle(color: Colors.white),)),
                     )
                     .toList(),
                 onChanged: (newValue) =>

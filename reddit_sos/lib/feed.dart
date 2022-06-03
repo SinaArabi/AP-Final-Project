@@ -30,7 +30,7 @@ class feed extends StatelessWidget {
                 ),
               ),
               title: Text(
-                "r/" + thePost.postSource.subId,
+                "r/" + thePost.postSource.subName,
                 style: TextStyle(
                   color: Colors.white,
                 ),

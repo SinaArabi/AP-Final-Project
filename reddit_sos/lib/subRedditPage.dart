@@ -37,7 +37,7 @@ class _subRedditPageState extends State<subRedditPage> {
     } else {
       searchedSubs = _subs
           .where((sub) =>
-              sub.subId.toLowerCase().contains(enteredKeyword.toLowerCase()))
+              sub.subName.toLowerCase().contains(enteredKeyword.toLowerCase()))
           .toList();
     }
 
@@ -46,7 +46,7 @@ class _subRedditPageState extends State<subRedditPage> {
     });
   }
 
-  subComponent(subId, image, members) {
+  subComponent(subName, image, members) {
     return Card(
         color: Theme.of(context).selectedRowColor,
         child: Row(
@@ -66,7 +66,7 @@ class _subRedditPageState extends State<subRedditPage> {
             ),
             Container(
               child: Text(
-                "r/" + subId,
+                "r/" + subName,
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -113,7 +113,7 @@ class _subRedditPageState extends State<subRedditPage> {
               child: ListView.builder(
                   itemCount: _foundSubs.length,
                   itemBuilder: (context, index) {
-                    return subComponent(_foundSubs[index].subId,
+                    return subComponent(_foundSubs[index].subName,
                         _foundSubs[index].image, _foundSubs[index].members);
                   }),
             ),

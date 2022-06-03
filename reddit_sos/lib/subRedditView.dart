@@ -20,7 +20,7 @@ class subRedditView extends StatelessWidget {
           SizedBox(
             height: 25,
           ),
-          Text("r/" + chosenSubReddit.subId,
+          Text("r/" + chosenSubReddit.subName,
               style: TextStyle(color: Colors.white, fontSize: 18)),
         ],
       ),
@@ -75,7 +75,7 @@ class subRedditView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30),
                             borderSide:
                                 BorderSide(color: Colors.purple, width: 2.0)),
-                        labelText: "r/" + chosenSubReddit.subId,
+                        labelText: "r/" + chosenSubReddit.subName,
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         suffixIcon: Icon(
                           Icons.search,
@@ -132,10 +132,8 @@ class subRedditView extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             child: Center(
-                              child: Text('Display Tab 1',
-                                  style: TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold)),
+                              child: Text('Display Tab 1'),
+                                  
                             ),
                           ),
                           Container(
@@ -152,7 +150,7 @@ class subRedditView extends StatelessWidget {
                   ],
                 ),
               ),
-              // feed(chosenSubReddit.subRedditPosts),
+              
             ],
           )
         ]),

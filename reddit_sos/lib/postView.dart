@@ -50,7 +50,7 @@ class postView extends StatelessWidget {
                   ),
                 ),
                 title: Text(
-                  "r/" + chosenPost.postSource.subId,
+                  "r/" + chosenPost.postSource.subName,
                   style: TextStyle(
                     color: Colors.white,
                   ),
