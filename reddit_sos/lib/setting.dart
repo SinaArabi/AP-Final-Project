@@ -55,6 +55,7 @@ class _SettingScreenState extends State<Setting> {
                 Expanded(
                     child: ListView(children: [
                   ListTile(
+                    onLongPress: ,
                     leading: Icon(Icons.home,color:Color.fromRGBO(106, 50, 159, 1) ,),
                     title: Text(
                       'Home',
@@ -63,7 +64,7 @@ class _SettingScreenState extends State<Setting> {
                       ),
                     ),
                     onTap: () {
-                      Navigator.pop(context);
+                      Ed
                     },
                   ),
                       ListTile(

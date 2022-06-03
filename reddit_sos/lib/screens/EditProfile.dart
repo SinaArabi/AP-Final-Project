@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class RegistrationScreen extends StatefulWidget {
+class EditProfile extends StatefulWidget {
   static const String id="registration_screen";
   @override
-  _RegistrationScreenState createState() => _RegistrationScreenState();
+  _EditProfile createState() => _EditProfile();
 }
 
-class _RegistrationScreenState extends State<RegistrationScreen> {
+class _EditProfile extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
