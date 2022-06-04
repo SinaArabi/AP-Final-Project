@@ -16,8 +16,29 @@ import 'package:reddit_sos/screens/login_screen.dart';
 import 'package:reddit_sos/screens/registration_screen.dart';
 import 'package:reddit_sos/setting.dart';
 
-class tabsScreen extends StatefulWidget {
-  static const String id = "tab_screen";
+void main() => runApp(Reddit());
+
+class Reddit extends StatelessWidget {
+  
+  post myPost = new post(
+      subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
+      new user('Sina', [], "assets/images/7070023.jpg"),
+      DateTime.now(),
+      "Fifa update",
+      "we are all hyped for the World Cup update!",
+      18,
+      2,
+      2, [
+    new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
+        "wow thats great!", 6, 1, DateTime.now()),
+    new comment(
+        new user("Khar", [], "assets/images/donkey.jpg"),
+        "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
+        1,
+        2,
+        DateTime.now())
+  ]);
+
   List<post> myPosts = [
     new post(
       subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
@@ -42,19 +63,19 @@ class tabsScreen extends StatefulWidget {
     ),
     new post(
       subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
-      new user('Sadra', [], "assets/images/7070023.jpg"),
+      new user('Sina', [], "assets/images/7070023.jpg"),
       DateTime.now(),
       "Gta online update",
       "Another one!",
       27,
       1,
-      3,
+      5,
       [
-        new comment(new user("Justin", [], ""),
-            "new glitches soming soon!", 6, 1, DateTime.now()),
+        new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
+            "wow thats great!", 6, 1, DateTime.now()),
         new comment(
-          new user("Steven", [], ""),
-          "Don't You Ever Not Tell Me Things I Wanna Know!",
+          new user("Khar", [], "assets/images/donkey.jpg"),
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
           1,
           2,
           DateTime.now(),
@@ -62,21 +83,68 @@ class tabsScreen extends StatefulWidget {
       ],
     ),
     new post(
-      subReddit('Programming', "", 56, "", []),
-      new user('Salar', [], "assets/images/7070023.jpg"),
+      subReddit('Gta', "assets/images/7070023.jpg", 56, "", []),
+      new user('Sina', [], "assets/images/7070023.jpg"),
       DateTime.now(),
-      "Flutter discuss",
-      "We are happy to announce that a new update for our theme would be released soon!",
+      "Gta online update",
+      "Another one!",
       27,
       1,
-      1,
+      5,
       [
-        new comment(new user("Vahid", [], "assets/images/shrek.jpg"),
-            "That made my day!!!", 6, 1, DateTime.now()),
-
+        new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
+            "wow thats great!", 6, 1, DateTime.now()),
+        new comment(
+          new user("Khar", [], "assets/images/donkey.jpg"),
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
+          1,
+          2,
+          DateTime.now(),
+        ),
       ],
     ),
-
+    new post(
+      subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
+      new user('Sina', [], "assets/images/7070023.jpg"),
+      DateTime.now(),
+      "Gta online update",
+      "Another one!",
+      27,
+      1,
+      5,
+      [
+        new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
+            "wow thats great!", 6, 1, DateTime.now()),
+        new comment(
+          new user("Khar", [], "assets/images/donkey.jpg"),
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
+          1,
+          2,
+          DateTime.now(),
+        ),
+      ],
+    ),
+    new post(
+      subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
+      new user('Sina', [], "assets/images/7070023.jpg"),
+      DateTime.now(),
+      "Gta online update",
+      "Another one!",
+      27,
+      1,
+      5,
+      [
+        new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
+            "wow thats great!", 6, 1, DateTime.now()),
+        new comment(
+          new user("Khar", [], "assets/images/donkey.jpg"),
+          "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
+          1,
+          2,
+          DateTime.now(),
+        ),
+      ],
+    ),
   ];
 
   List<subReddit> mySubreddits = [
@@ -207,81 +275,33 @@ class tabsScreen extends StatefulWidget {
   ];
 
   @override
-  State<tabsScreen> createState() => _tabsScreenState();
-}
-
-class _tabsScreenState extends State<tabsScreen> {
-  int _selectedPageIndex = 0;
-  PageController pageController = new PageController();
-
-  void _selectPage(int index) {
-    setState(() {
-      _selectedPageIndex = index;
-    });
-    pageController.jumpToPage(_selectedPageIndex);
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Reddit'),backgroundColor: Color.fromRGBO(106, 50, 159, 1),),
-      body: PageView(
-        controller: pageController,
-        children: [
-          feed(widget.myPosts),
-          subRedditPage(widget.mySubreddits),
-          addPost(widget.mySubreddits),
-          Container(
-            color: Colors.pink,
-          ),
-          Setting(),
-        ],
+    return MaterialApp(
+      initialRoute: tabsScreen.id,
+      // WelcomeScreen.id,
+      routes: {
+        WelcomeScreen.id:(context)=>WelcomeScreen(),
+        LoginScreen.id:(context)=>LoginScreen(),
+        RegistrationScreen.id:(context)=>RegistrationScreen(),
+        Setting.id:(context)=>Setting(),
+        EditProfile.id:(context)=>EditProfile(),
+        feed.id:(context) => feed(myPosts),
+        tabsScreen.id:(context) => tabsScreen(),
+        subRedditPage.id:(context) => subRedditPage(mySubreddits),
+        addPost.id:(context) => addPost(mySubreddits),
+        subRedditView.id:(context) => subRedditView(mySubreddits.first),
+
+      },
+      debugShowCheckedModeBanner: false,
+      title: 'defaultPage',
+      theme: ThemeData(
+        selectedRowColor: Colors.grey.shade900,
+        primaryColor: Color(0xff121110),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).primaryColor,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              color: Colors.white,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
-              color: Colors.white,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.add,
-              color: Colors.white,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.message,
-              color: Colors.white,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.settings_outlined,
-              color: Colors.white,
-            ),
-            label: '',
-          ),
-        ],
-        currentIndex: _selectedPageIndex,
-        selectedItemColor: Theme.of(context).selectedRowColor,
-        unselectedItemColor: Theme.of(context).accentColor,
-        onTap: _selectPage,
-      ),
+
+
+    
     );
+    
   }
 }
