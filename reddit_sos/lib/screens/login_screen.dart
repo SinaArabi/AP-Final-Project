@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_sos/feed.dart';
+import 'package:reddit_sos/tabs_screen.dart';
 import '../icon.dart';
 import '../line.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
@@ -95,13 +96,14 @@ class _LoginScreenState extends State<LoginScreen> {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, feed.id);
+                    Navigator.pushNamed(context, tabsScreen.id);
                   },
                   minWidth: 200.0,
                   height: 42.0,
                   child: Text(
                     'Submit',
                   ),
+                  textColor: Colors.white,
                 ),
               ),
             ),

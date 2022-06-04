@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/about.dart';
+import 'package:reddit_sos/feed.dart';
 import 'package:reddit_sos/screens/EditProfile.dart';
+import 'line.dart';
 
 class Setting extends StatefulWidget {
   static const String id = "Setting_screen";
@@ -37,78 +40,104 @@ class _SettingScreenState extends State<Setting> {
                             height: 10.0,
                           ),
                           Text(
-                            'Salar Jahanshiri',
+                            'John Doe',
                             style: TextStyle(
                               fontSize: 20.0,
-                              color: Color.fromRGBO(106, 50, 159, 1),
+                              color: Colors.white,
                             ),
                           ),
                         ],
                       ),
                     ),
+                    Container(
+                      color: Color.fromRGBO(106, 50, 159, 1),
+                      width: double.infinity,
+                      height: 1.0,
+                    ),
                     Expanded(
                         child: ListView(children: [
                           ListTile(
 
-                            leading: Icon(Icons.home,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                            leading: Icon(Icons.home,color:Colors.white ,),
                             title: Text(
                               'Home',
                               style: TextStyle(
-                                  color: Color.fromRGBO(106, 50, 159, 1)
+                                  color: Colors.white
+                              ),
+                            ),
+                            onTap: () {
+                              Navigator.pushNamed(context, feed.id);
+                            },
+                          ),
+                          Container(
+                            color: Color.fromRGBO(106, 50, 159, 1),
+                            width: double.infinity,
+                            height: 1.0,
+                          ),
+                          ListTile(
+                            leading: Icon(Icons.person,color:Colors.white ,),
+                            title: Text(
+                              'Edit Profile',
+                              style: TextStyle(
+                                  color: Colors.white
                               ),
                             ),
                             onTap: () {
                               Navigator.pushNamed(context, EditProfile.id);
                             },
                           ),
-                          ListTile(
-                            leading: Icon(Icons.person,color:Color.fromRGBO(106, 50, 159, 1) ,),
-                            title: Text(
-                              'Edit Profile',
-                              style: TextStyle(
-                                  color: Color.fromRGBO(106, 50, 159, 1)
-                              ),
-                            ),
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
+                          Container(
+                            color: Color.fromRGBO(106, 50, 159, 1),
+                            width: double.infinity,
+                            height: 1.0,
                           ),
                           ListTile(
-                            leading: Icon(Icons.people,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                            leading: Icon(Icons.people,color:Colors.white ,),
                             title: Text(
                               'Community',
                               style: TextStyle(
-                                  color: Color.fromRGBO(106, 50, 159, 1)
+                                  color: Colors.white
                               ),
                             ),
                             onTap: () {
                               Navigator.pop(context);
                             },
                           ),
+                          Container(
+                            color: Color.fromRGBO(106, 50, 159, 1),
+                            width: double.infinity,
+                            height: 1.0,
+                          ),
                           ListTile(
-                            leading: Icon(Icons.save,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                            leading: Icon(Icons.save,color:Colors.white ,),
                             title: Text(
                               'Saved Post',
                               style: TextStyle(
-                                color: Color.fromRGBO(106, 50, 159, 1),
+                                color: Colors.white,
                               ),
                             ),
                             onTap: () {
                               Navigator.pop(context);
                             },
                           ),
+                          Container(
+                            color: Color.fromRGBO(106, 50, 159, 1),
+                            width: double.infinity,
+                            height: 1.0,
+                          ),
                           ListTile(
-                            leading: Icon(Icons.info,color:Color.fromRGBO(106, 50, 159, 1) ,),
+                            leading: Icon(Icons.info,color:Colors.white,),
                             title: Text(
                               'About',
                               style: TextStyle(
-                                  color: Color.fromRGBO(106, 50, 159, 1)
+                                  color: Colors.white
                               ),
                             ),
                             onTap: () {
-                              Navigator.pop(context);
+                              Navigator.pushNamed(context,About.id);
                             },
                           ),
+
 
                         ])),
                   ],
@@ -116,6 +145,9 @@ class _SettingScreenState extends State<Setting> {
               ))
         ],
       ),
+
     );
+
   }
+
 }

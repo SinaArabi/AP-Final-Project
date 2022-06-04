@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/about.dart';
 import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/comment.dart';
@@ -277,7 +278,7 @@ class Reddit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: tabsScreen.id,
+      initialRoute: WelcomeScreen.id,
       // WelcomeScreen.id,
       routes: {
         WelcomeScreen.id:(context)=>WelcomeScreen(),
@@ -290,6 +291,7 @@ class Reddit extends StatelessWidget {
         subRedditPage.id:(context) => subRedditPage(mySubreddits),
         addPost.id:(context) => addPost(mySubreddits),
         subRedditView.id:(context) => subRedditView(mySubreddits.first),
+        About.id:(context) => About(),
 
       },
       debugShowCheckedModeBanner: false,

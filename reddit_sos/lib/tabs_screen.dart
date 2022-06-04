@@ -224,7 +224,7 @@ class _tabsScreenState extends State<tabsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Reddit')),
+      appBar: AppBar(title: Text('Reddit'),backgroundColor: Color.fromRGBO(106, 50, 159, 1),),
       body: PageView(
         controller: pageController,
         children: [
