@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/comment.dart';
+import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/post.dart';
 import 'package:reddit_sos/postView.dart';
 import 'package:reddit_sos/subRedditView.dart';
@@ -48,12 +49,12 @@ class tabsScreen extends StatefulWidget {
       "Another one!",
       27,
       1,
-      3,
+      2,
       [
-        new comment(new user("Justin", [], ""),
+        new comment(new user("Justin", [], "assets/images/justin.jpg"),
             "new glitches soming soon!", 6, 1, DateTime.now()),
         new comment(
-          new user("Steven", [], ""),
+          new user("Steven", [], "assets/images/trevor.jpg"),
           "Don't You Ever Not Tell Me Things I Wanna Know!",
           1,
           2,
@@ -62,16 +63,16 @@ class tabsScreen extends StatefulWidget {
       ],
     ),
     new post(
-      subReddit('Programming', "", 56, "", []),
+      subReddit('Programming', "assets/images/pro.jpg", 30, "", []),
       new user('Salar', [], "assets/images/7070023.jpg"),
       DateTime.now(),
       "Flutter discuss",
       "We are happy to announce that a new update for our theme would be released soon!",
-      27,
+      18,
       1,
       1,
       [
-        new comment(new user("Vahid", [], "assets/images/shrek.jpg"),
+        new comment(new user("Majid", [], "assets/images/justin.jpg"),
             "That made my day!!!", 6, 1, DateTime.now()),
 
       ],
@@ -80,8 +81,8 @@ class tabsScreen extends StatefulWidget {
   ];
 
   List<subReddit> mySubreddits = [
-    subReddit('Gta', "assets/images/gta.jpg", 56,
-        "a bunch of idol people playing weird characters", [
+    subReddit('RepOfPls', "assets/images/rop.jpg", 56,
+        "Online gamers commiunity", [
       new post(
         subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
         new user('Sina', [], "assets/images/7070023.jpg"),
@@ -111,7 +112,7 @@ class tabsScreen extends StatefulWidget {
         "Another one!",
         27,
         1,
-        5,
+        2,
         [
           new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
               "wow thats great!", 6, 1, DateTime.now()),
@@ -124,27 +125,27 @@ class tabsScreen extends StatefulWidget {
           ),
         ],
       ),
-      new post(
-        subReddit('Gta', "assets/images/7070023.jpg", 56, "", []),
-        new user('Sina', [], "assets/images/7070023.jpg"),
-        DateTime.now(),
-        "Gta online update",
-        "Another one!",
-        27,
-        1,
-        5,
-        [
-          new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
-          new comment(
-            new user("Khar", [], "assets/images/donkey.jpg"),
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
-            1,
-            2,
-            DateTime.now(),
-          ),
-        ],
-      ),
+          new post(
+      subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
+      new user('Sadra', [], "assets/images/7070023.jpg"),
+      DateTime.now(),
+      "Gta online update",
+      "Another one!",
+      27,
+      1,
+      2,
+      [
+        new comment(new user("Justin", [], ""),
+            "new glitches soming soon!", 6, 1, DateTime.now()),
+        new comment(
+          new user("Steven", [], ""),
+          "Don't You Ever Not Tell Me Things I Wanna Know!",
+          1,
+          2,
+          DateTime.now(),
+        ),
+      ],
+    ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
         new user('Sina', [], "assets/images/7070023.jpg"),
@@ -191,17 +192,17 @@ class tabsScreen extends StatefulWidget {
     subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
     subReddit(
         "GOT",
-        'https://movieposterhd.com/wp-content/uploads/2019/03/Game-of-Thrones-8-Season-iPhone-6-Wallpaper.jpg',
+        'assets/images/got.jpg',
         1001,
         "", []),
     subReddit(
         "Programmers",
-        'https://images.unsplash.com/photo-1605379399642-870262d3d051?ixlib=rb-1.2.1&raw_url=true&q=80&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1506',
+        'assets/images/prog.jpg',
         20212,
         "", []),
     subReddit(
         "GTA V",
-        "https://images.unsplash.com/photo-1621364525332-f9c381f3bfe8?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032",
+        "assets/images/gta.jpg",
         5000000,
         "", []),
   ];
@@ -231,9 +232,6 @@ class _tabsScreenState extends State<tabsScreen> {
           feed(widget.myPosts),
           subRedditPage(widget.mySubreddits),
           addPost(widget.mySubreddits),
-          Container(
-            color: Colors.pink,
-          ),
           Setting(),
         ],
       ),
@@ -249,8 +247,8 @@ class _tabsScreenState extends State<tabsScreen> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
+            icon: Icon(Votes.th_thumb
+              ,
               color: Colors.white,
             ),
             label: '',
@@ -258,13 +256,6 @@ class _tabsScreenState extends State<tabsScreen> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.add,
-              color: Colors.white,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.message,
               color: Colors.white,
             ),
             label: '',

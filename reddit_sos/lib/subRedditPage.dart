@@ -37,32 +37,38 @@ class _subRedditPageState extends State<subRedditPage> {
   }
 
   subComponent(sub, context) {
-    return ListTile(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => subRedditView(sub),
+    return Column(
+      children: [
+        ListTile(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => subRedditView(sub),
+              ),
+            );
+          },
+          contentPadding: EdgeInsets.only(left: 0, right: 0),
+          leading: Container(
+            width: 60,
+            height: 60,
+            child: ClipOval(
+              child: Image.asset(
+                sub.image,
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-        );
-      },
-      contentPadding: EdgeInsets.only(left: 0, right: 0),
-      leading: Container(
-        width: 60,
-        height: 60,
-        child: ClipOval(
-          child: Image.asset(
-            sub.image,
-            fit: BoxFit.cover,
+          title: Text(
+            "r/" + sub.subName,
+            style: TextStyle(
+              color: Colors.white,
+            ),
           ),
+          
         ),
-      ),
-      title: Text(
-        "r/" + sub.subName,
-        style: TextStyle(
-          color: Colors.white,
-        ),
-      ),
+        SizedBox(height: 10,),
+      ],
     );
   }
 
