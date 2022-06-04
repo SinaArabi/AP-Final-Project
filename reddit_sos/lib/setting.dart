@@ -117,7 +117,7 @@ class _SettingScreenState extends State<Setting> {
                               ),
                             ),
                             onTap: () {
-                              Navigator.pop(context);
+                              Navigator.pushNamed(context,feed.id);
                             },
                           ),
                           Container(
