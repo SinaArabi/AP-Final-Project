@@ -20,18 +20,20 @@ class _EditProfile extends State<EditProfile> {
             Container(
               height: 200.0,
               child: Image(
-                image: AssetImage("assets/logo.png"),
+                image: AssetImage("assets/images/logo.png"),
               ),
             ),
             SizedBox(
               height: 48.0,
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               onChanged: (value) {
                 //Do something with the user input.
               },
               decoration: InputDecoration(
                 hintText: 'Enter your new email',
+                hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
                 EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
@@ -53,11 +55,13 @@ class _EditProfile extends State<EditProfile> {
               height: 8.0,
             ),
             TextField(
+              style: TextStyle(color: Colors.white),
               onChanged: (value) {
-                //Do something with the user input.
+
               },
               decoration: InputDecoration(
                 hintText: 'Enter your new password.',
+                hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
                 EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
@@ -92,7 +96,9 @@ class _EditProfile extends State<EditProfile> {
                   height: 42.0,
                   child: Text(
                     'Submit',
+
                   ),
+                  textColor: Colors.white,
                 ),
 
               ),

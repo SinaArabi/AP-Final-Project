@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/tabs_screen.dart';
 
 class RegistrationScreen extends StatefulWidget {
   static const String id = "registration_screen";
@@ -90,13 +91,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    //Implement login functionality.
+                    Navigator.pushNamed(context, tabsScreen.id);
                   },
                   minWidth: 200.0,
                   height: 42.0,
                   child: Text(
                     'Submit',
                   ),
+                  textColor: Colors.white,
                 ),
               ),
             ),
