@@ -74,7 +74,7 @@ class Reddit extends StatelessWidget {
       1,
       1,
       [
-        new comment(new user("Majid", [], "assets/images/justin.jpg"),
+        new comment(new user("Majid", [], "assets/images/stevejobs.jpg"),
             "That made my day!!!", 6, 1, DateTime.now()),
 
       ],
