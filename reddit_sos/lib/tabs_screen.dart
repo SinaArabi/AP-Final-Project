@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/comment.dart';
+import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/post.dart';
 import 'package:reddit_sos/postView.dart';
 import 'package:reddit_sos/subRedditView.dart';
@@ -231,9 +232,6 @@ class _tabsScreenState extends State<tabsScreen> {
           feed(widget.myPosts),
           subRedditPage(widget.mySubreddits),
           addPost(widget.mySubreddits),
-          Container(
-            color: Colors.pink,
-          ),
           Setting(),
         ],
       ),
@@ -249,8 +247,8 @@ class _tabsScreenState extends State<tabsScreen> {
             label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-              Icons.search,
+            icon: Icon(Votes.th_thumb
+              ,
               color: Colors.white,
             ),
             label: '',
@@ -258,13 +256,6 @@ class _tabsScreenState extends State<tabsScreen> {
           BottomNavigationBarItem(
             icon: Icon(
               Icons.add,
-              color: Colors.white,
-            ),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.message,
               color: Colors.white,
             ),
             label: '',
