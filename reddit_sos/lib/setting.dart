@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:reddit_sos/about.dart';
 import 'package:reddit_sos/feed.dart';
 import 'package:reddit_sos/screens/EditProfile.dart';
+import 'package:reddit_sos/subRedditPage.dart';
+import 'package:reddit_sos/tabs_screen.dart';
 import 'line.dart';
 
 class Setting extends StatefulWidget {
@@ -66,7 +68,7 @@ class _SettingScreenState extends State<Setting> {
                               ),
                             ),
                             onTap: () {
-                              Navigator.pushNamed(context, feed.id);
+                              Navigator.pushNamed(context, tabsScreen.id);
                             },
                           ),
                           Container(
@@ -100,7 +102,8 @@ class _SettingScreenState extends State<Setting> {
                               ),
                             ),
                             onTap: () {
-                              Navigator.pop(context);
+                              // Navigator.pop(context);
+                              Navigator.pushNamed(context, subRedditPage.id);
                             },
                           ),
                           Container(
