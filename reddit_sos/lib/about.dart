@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 
 class About extends StatefulWidget {
-  static const String id = "registration_screen";
+  static const String id = "About_screen";
   @override
   _AboutScreen createState() => _AboutScreen();
 }
