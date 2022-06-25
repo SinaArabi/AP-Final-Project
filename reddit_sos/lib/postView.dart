@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
+import 'package:reddit_sos/addComment.dart';
 import 'package:reddit_sos/icons.dart';
 import 'main.dart';
 import './post.dart';
@@ -14,18 +15,46 @@ import 'package:reddit_sos/subRedditPage.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 import './post.dart';
 
-class postView extends StatelessWidget {
-  
-
+class postView extends StatefulWidget {
   final post chosenPost;
   postView(this.chosenPost);
+
+  @override
+  State<postView> createState() => _postViewState();
+}
+
+class _postViewState extends State<postView> {
+  void _upVote(bool isUpVotePressed, bool isDownVotePressed) {
+    if (!isUpVotePressed) {
+      setState(() {
+        widget.chosenPost.upVoteIsPressed = !widget.chosenPost.upVoteIsPressed;
+        widget.chosenPost.downVoteIsPressed = false;
+        widget.chosenPost.upVotes++;
+      });
+    }
+  }
+
+  void _downVote(bool isUpVotePressed, bool isDownVotePressed) {
+    if (!isDownVotePressed) {
+      setState(() {
+        widget.chosenPost.downVoteIsPressed =
+            !widget.chosenPost.downVoteIsPressed;
+        widget.chosenPost.upVoteIsPressed = false;
+        widget.chosenPost.upVotes--;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        leading: IconButton(icon: Icon(Icons.arrow_back_rounded), onPressed: () {Navigator.pushNamed(context, tabsScreen.id );} ),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_rounded),
+            onPressed: () {
+              Navigator.pushNamed(context, tabsScreen.id);
+            }),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
@@ -51,13 +80,13 @@ class postView extends StatelessWidget {
                   height: 60,
                   child: ClipOval(
                     child: Image.asset(
-                      chosenPost.postSource.image,
+                      widget.chosenPost.postSource.image,
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
                 title: Text(
-                  "r/" + chosenPost.postSource.subName,
+                  "r/" + widget.chosenPost.postSource.subName,
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -65,13 +94,15 @@ class postView extends StatelessWidget {
                 subtitle: Row(
                   children: [
                     Text(
-                      "u/" + chosenPost.poster.UserName,
+                      "u/" + widget.chosenPost.poster.UserName,
                       style: TextStyle(
                         color: Colors.purple,
                       ),
                     ),
                     Text(
-                      " . " + DateFormat.yMMMEd().format(chosenPost.postDate),
+                      " . " +
+                          DateFormat.yMMMEd()
+                              .format(widget.chosenPost.postDate),
                       style: TextStyle(color: Colors.blueAccent),
                     )
                   ],
@@ -83,7 +114,7 @@ class postView extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    chosenPost.postTitle,
+                    widget.chosenPost.postTitle,
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
@@ -91,7 +122,7 @@ class postView extends StatelessWidget {
                     height: 20,
                   ),
                   Text(
-                    chosenPost.postContent,
+                    widget.chosenPost.postContent,
                     style: TextStyle(color: Colors.white),
                   ),
                   SizedBox(
@@ -104,8 +135,10 @@ class postView extends StatelessWidget {
                           icon: Icon(
                             Votes.up_bold,
                           ),
-                          label: Text(chosenPost.upVotes.toString()),
-                          onPressed: () {},
+                          label: Text(widget.chosenPost.upVotes.toString()),
+                          onPressed: () => _upVote(
+                              widget.chosenPost.upVoteIsPressed,
+                              widget.chosenPost.downVoteIsPressed),
                           style: TextButton.styleFrom(primary: Colors.white),
                         ),
                         IconButton(
@@ -113,7 +146,9 @@ class postView extends StatelessWidget {
                             Votes.down_bold,
                             color: Colors.white,
                           ),
-                          onPressed: () {},
+                          onPressed: () => _downVote(
+                              widget.chosenPost.upVoteIsPressed,
+                              widget.chosenPost.downVoteIsPressed),
                         ),
                         SizedBox(
                           width: 20,
@@ -123,7 +158,8 @@ class postView extends StatelessWidget {
                             Votes.comment_alt,
                             size: 18,
                           ),
-                          label: Text(chosenPost.commentsCounter.toString()),
+                          label: Text(
+                              widget.chosenPost.commentsCounter.toString()),
                           onPressed: () {},
                           style: TextButton.styleFrom(primary: Colors.white),
                         ),
@@ -146,26 +182,30 @@ class postView extends StatelessWidget {
               ),
               Expanded(
                 child: ListView.builder(
-                    itemCount: chosenPost.commentsCounter,
+                    itemCount: widget.chosenPost.commentsCounter,
                     itemBuilder: (context, index) {
-                      return commentComponent(chosenPost.postComments[index]);
+                      return commentComponent(
+                          widget.chosenPost.postComments[index]);
                     }),
               ),
               Align(
-                  alignment: Alignment.bottomCenter,
-                  child: TextField(
-                      enabled: false,
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                          disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 1.0)),
-                          labelText: 'Add a comment',
-                          floatingLabelBehavior: FloatingLabelBehavior.auto,
-                          labelStyle: TextStyle(color: Colors.white)),
-                      onChanged: (value) => {} //add comment function,
-                      ))
+                alignment: Alignment.bottomCenter,
+                child: FractionallySizedBox(
+                  widthFactor:
+                      1, // means 100%, you can change this to 0.8 (80%)
+                  child: RaisedButton(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => addComment(widget.chosenPost),
+                      ),
+                    ),
+                    color: Color.fromRGBO(106, 50, 159, 1),
+                    child: Text('Add Comment',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+              )
             ],
           ),
         ),

@@ -20,7 +20,6 @@ import 'package:reddit_sos/setting.dart';
 void main() => runApp(Reddit());
 
 class Reddit extends StatelessWidget {
-  
   List<post> myPosts = [
     new post(
       subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
@@ -29,7 +28,7 @@ class Reddit extends StatelessWidget {
       "Fifa update",
       "we are all hyped for the World Cup update!",
       18,
-      2,
+      false,false,
       2,
       [
         new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
@@ -50,8 +49,8 @@ class Reddit extends StatelessWidget {
       "Gta online update",
       "Another one!",
       27,
+      false,false,
       1,
-      2,
       [
         new comment(new user("Justin", [], "assets/images/justin.jpg"),
             "new glitches soming soon!", 6, 1, DateTime.now()),
@@ -71,20 +70,18 @@ class Reddit extends StatelessWidget {
       "Flutter discuss",
       "We are happy to announce that a new update for our theme would be released soon!",
       18,
-      1,
+      false,false,
       1,
       [
         new comment(new user("Majid", [], "assets/images/stevejobs.jpg"),
             "That made my day!!!", 6, 1, DateTime.now()),
-
       ],
     ),
-
   ];
 
   List<subReddit> mySubreddits = [
-    subReddit('RepOfPls', "assets/images/rop.jpg", 56,
-        "Online gamers commiunity", [
+    subReddit(
+        'RepOfPls', "assets/images/rop.jpg", 56, "Online gamers commiunity", [
       new post(
         subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
         new user('Sina', [], "assets/images/7070023.jpg"),
@@ -92,7 +89,7 @@ class Reddit extends StatelessWidget {
         "Fifa update",
         "we are all hyped for the World Cup update!",
         18,
-        2,
+        false,false,
         2,
         [
           new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
@@ -113,8 +110,8 @@ class Reddit extends StatelessWidget {
         "Gta online update",
         "Another one!",
         27,
+        false,false,
         1,
-        2,
         [
           new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
               "wow thats great!", 6, 1, DateTime.now()),
@@ -127,27 +124,27 @@ class Reddit extends StatelessWidget {
           ),
         ],
       ),
-          new post(
-      subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
-      new user('Sadra', [], "assets/images/7070023.jpg"),
-      DateTime.now(),
-      "Gta online update",
-      "Another one!",
-      27,
-      1,
-      2,
-      [
-        new comment(new user("Justin", [], ""),
-            "new glitches soming soon!", 6, 1, DateTime.now()),
-        new comment(
-          new user("Steven", [], ""),
-          "Don't You Ever Not Tell Me Things I Wanna Know!",
-          1,
-          2,
-          DateTime.now(),
-        ),
-      ],
-    ),
+      new post(
+        subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
+        new user('Sadra', [], "assets/images/7070023.jpg"),
+        DateTime.now(),
+        "Gta online update",
+        "Another one!",
+        27,
+        false,false,
+        1,
+        [
+          new comment(new user("Justin", [], ""), "new glitches soming soon!",
+              6, 1, DateTime.now()),
+          new comment(
+            new user("Steven", [], ""),
+            "Don't You Ever Not Tell Me Things I Wanna Know!",
+            1,
+            2,
+            DateTime.now(),
+          ),
+        ],
+      ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
         new user('Sina', [], "assets/images/7070023.jpg"),
@@ -155,7 +152,7 @@ class Reddit extends StatelessWidget {
         "Gta online update",
         "Another one!",
         27,
-        1,
+        false,false,
         5,
         [
           new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
@@ -176,8 +173,8 @@ class Reddit extends StatelessWidget {
         "Gta online update",
         "Another one!",
         27,
+        false,false,
         1,
-        5,
         [
           new comment(new user("Shrek", [], "assets/images/shrek.jpg"),
               "wow thats great!", 6, 1, DateTime.now()),
@@ -192,21 +189,9 @@ class Reddit extends StatelessWidget {
       ),
     ]),
     subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
-    subReddit(
-        "GOT",
-        'assets/images/got.jpg',
-        1001,
-        "", []),
-    subReddit(
-        "Programmers",
-        'assets/images/prog.jpg',
-        20212,
-        "", []),
-    subReddit(
-        "GTA V",
-        "assets/images/gta.jpg",
-        5000000,
-        "", []),
+    subReddit("GOT", 'assets/images/got.jpg', 1001, "", []),
+    subReddit("Programmers", 'assets/images/prog.jpg', 20212, "", []),
+    subReddit("GTA V", "assets/images/gta.jpg", 5000000, "", []),
   ];
 
   @override
@@ -215,18 +200,17 @@ class Reddit extends StatelessWidget {
       initialRoute: WelcomeScreen.id,
       // WelcomeScreen.id,
       routes: {
-        WelcomeScreen.id:(context)=>WelcomeScreen(),
-        LoginScreen.id:(context)=>LoginScreen(),
-        RegistrationScreen.id:(context)=>RegistrationScreen(),
-        Setting.id:(context)=>Setting(),
-        EditProfile.id:(context)=>EditProfile(),
-        feed.id:(context) => feed(myPosts),
-        tabsScreen.id:(context) => tabsScreen(),
-        subRedditPage.id:(context) => subRedditPage(mySubreddits),
-        addPost.id:(context) => addPost(mySubreddits),
-        subRedditView.id:(context) => subRedditView(mySubreddits.first),
-        About.id:(context) => About(),
-
+        WelcomeScreen.id: (context) => WelcomeScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+        RegistrationScreen.id: (context) => RegistrationScreen(),
+        Setting.id: (context) => Setting(),
+        EditProfile.id: (context) => EditProfile(),
+        feed.id: (context) => feed(myPosts),
+        tabsScreen.id: (context) => tabsScreen(),
+        subRedditPage.id: (context) => subRedditPage(mySubreddits),
+        addPost.id: (context) => addPost(mySubreddits),
+        subRedditView.id: (context) => subRedditView(mySubreddits.first),
+        About.id: (context) => About(),
       },
       debugShowCheckedModeBanner: false,
       title: 'defaultPage',
@@ -234,10 +218,6 @@ class Reddit extends StatelessWidget {
         selectedRowColor: Colors.grey.shade900,
         primaryColor: Color(0xff121110),
       ),
-
-
-    
     );
-    
   }
 }

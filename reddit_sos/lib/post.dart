@@ -10,11 +10,12 @@ class post {
   String postTitle;
   String postContent;
   int upVotes;
-  int downVotes;
+  bool upVoteIsPressed;
+  bool downVoteIsPressed;
   int commentsCounter;
   List<comment> postComments;
   post(this.postSource, this.poster, this.postDate, this.postTitle, this.postContent,
-      this.upVotes, this.downVotes, this.commentsCounter, this.postComments);
+      this.upVotes, this.upVoteIsPressed, this.downVoteIsPressed, this.commentsCounter, this.postComments);
 
   void addComment(String commentContent){
     //...
