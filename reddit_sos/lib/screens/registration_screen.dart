@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 
-
-
 isValidEmail(String email) {
   if (email.isNotEmpty) {
-    return RegExp(
-        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-        .hasMatch(email);
+    if (RegExp(
+            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(email)) {
+      return null;
+    }
   }
-  return false;
+  return "Not a valid email";
 }
-
-
-
 
 isValidPassword(String pass) {
   if (pass.length >= 8) {
@@ -44,7 +41,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
+            SizedBox(
               height: 200.0,
               child: Image(
                 image: AssetImage("assets/images/logo.png"),
@@ -53,23 +50,21 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 48.0,
             ),
-            TextField(
-              autofocus: true,
+            TextFormField(
               controller: emailController,
-              style: TextStyle(color: Colors.white),
+              style: const TextStyle(color: Colors.white),
               onChanged: (value) {
-                emailErrorText=isValidEmail(emailController.text)
-                    ?null
-                    :"Not a valid email";
-                print(emailErrorText);
+                setState(() {
+                  emailErrorText = isValidEmail(value);
+                });
               },
               decoration: InputDecoration(
                 filled: true,
                 hintText: 'Enter your email',
-                errorText:emailErrorText,
+                errorText: isValidEmail(emailController.text),
                 hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
@@ -90,13 +85,12 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
             TextField(
               style: TextStyle(color: Colors.white),
-              onChanged: (text) {
-              },
+              onChanged: (text) {},
               decoration: InputDecoration(
                 hintText: 'Enter your password.',
                 hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
