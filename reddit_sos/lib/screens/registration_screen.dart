@@ -1,13 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 
+
+
+isValidEmail(String email) {
+  if (email.isNotEmpty) {
+    return RegExp(
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+        .hasMatch(email);
+  }
+  return false;
+}
+
+isValidPassword(String pass) {
+  if (pass.length >= 8) {
+    String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
+    return RegExp(pattern).hasMatch(pass);
+  }
+  return false;
+}
+
 class RegistrationScreen extends StatefulWidget {
   static const String id = "registration_screen";
+
   @override
   _RegistrationScreenState createState() => _RegistrationScreenState();
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  TextEditingController emailController = TextEditingController();
+  String? emailErrorText;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,15 +51,20 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 48.0,
             ),
             TextField(
+              controller: emailController,
               style: TextStyle(color: Colors.white),
               onChanged: (value) {
-                //Do something with the user input.
+                emailErrorText=isValidEmail(emailController.text)
+                    ?null
+                    :"Not a valid email";
+                print(emailErrorText);
               },
               decoration: InputDecoration(
                 hintText: 'Enter your email',
+                errorText:emailErrorText,
                 hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
@@ -57,14 +85,13 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             ),
             TextField(
               style: TextStyle(color: Colors.white),
-              onChanged: (value) {
-                //Do something with the user input.
+              onChanged: (text) {
               },
               decoration: InputDecoration(
                 hintText: 'Enter your password.',
                 hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
