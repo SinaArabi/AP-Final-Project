@@ -12,6 +12,9 @@ isValidEmail(String email) {
   return false;
 }
 
+
+
+
 isValidPassword(String pass) {
   if (pass.length >= 8) {
     String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
@@ -51,6 +54,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 48.0,
             ),
             TextField(
+              autofocus: true,
               controller: emailController,
               style: TextStyle(color: Colors.white),
               onChanged: (value) {
@@ -60,6 +64,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 print(emailErrorText);
               },
               decoration: InputDecoration(
+                filled: true,
                 hintText: 'Enter your email',
                 errorText:emailErrorText,
                 hintStyle: TextStyle(color: Colors.white),
@@ -81,7 +86,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ),
             SizedBox(
-              height: 8.0,
+              height: 18.0,
             ),
             TextField(
               style: TextStyle(color: Colors.white),
