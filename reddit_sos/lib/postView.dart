@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
+import 'package:reddit_sos/addComment.dart';
 import 'package:reddit_sos/icons.dart';
 import 'main.dart';
 import './post.dart';
@@ -135,8 +136,9 @@ class _postViewState extends State<postView> {
                             Votes.up_bold,
                           ),
                           label: Text(widget.chosenPost.upVotes.toString()),
-                          onPressed: () =>
-                              _upVote(widget.chosenPost.upVoteIsPressed, widget.chosenPost.downVoteIsPressed ),
+                          onPressed: () => _upVote(
+                              widget.chosenPost.upVoteIsPressed,
+                              widget.chosenPost.downVoteIsPressed),
                           style: TextButton.styleFrom(primary: Colors.white),
                         ),
                         IconButton(
@@ -144,8 +146,9 @@ class _postViewState extends State<postView> {
                             Votes.down_bold,
                             color: Colors.white,
                           ),
-                          onPressed: () =>
-                              _downVote(widget.chosenPost.upVoteIsPressed, widget.chosenPost.downVoteIsPressed ),
+                          onPressed: () => _downVote(
+                              widget.chosenPost.upVoteIsPressed,
+                              widget.chosenPost.downVoteIsPressed),
                         ),
                         SizedBox(
                           width: 20,
@@ -186,20 +189,23 @@ class _postViewState extends State<postView> {
                     }),
               ),
               Align(
-                  alignment: Alignment.bottomCenter,
-                  child: TextField(
-                      enabled: false,
-                      style: TextStyle(color: Colors.white),
-                      decoration: InputDecoration(
-                          disabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide:
-                                  BorderSide(color: Colors.white, width: 1.0)),
-                          labelText: 'Add a comment',
-                          floatingLabelBehavior: FloatingLabelBehavior.auto,
-                          labelStyle: TextStyle(color: Colors.white)),
-                      onChanged: (value) => {} //add comment function,
-                      ))
+                alignment: Alignment.bottomCenter,
+                child: FractionallySizedBox(
+                  widthFactor:
+                      1, // means 100%, you can change this to 0.8 (80%)
+                  child: RaisedButton(
+                    onPressed: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => addComment(widget.chosenPost),
+                      ),
+                    ),
+                    color: Color.fromRGBO(106, 50, 159, 1),
+                    child: Text('Add Comment',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ),
+              )
             ],
           ),
         ),
