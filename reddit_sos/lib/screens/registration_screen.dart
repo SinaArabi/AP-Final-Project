@@ -14,10 +14,14 @@ isValidEmail(String email) {
 
 isValidPassword(String pass) {
   if (pass.length >= 8) {
-    String pattern = r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$';
-    return RegExp(pattern).hasMatch(pass);
-  }
-  return false;
+
+      if (RegExp(
+          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+          .hasMatch(pass)) {
+        return null;
+      }
+    }
+    return "Not a valid password";
 }
 
 class RegistrationScreen extends StatefulWidget {
@@ -30,6 +34,8 @@ class RegistrationScreen extends StatefulWidget {
 class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController emailController = TextEditingController();
   String? emailErrorText;
+  TextEditingController passwordController = TextEditingController();
+  String? passwordErrorText;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +54,34 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               ),
             ),
             SizedBox(
-              height: 48.0,
+              height: 18.0,
+            ),
+            TextField(
+              style: TextStyle(color: Colors.white),
+              onChanged: (text) {},
+              decoration: InputDecoration(
+                hintText: 'Enter your Username.',
+                hintStyle: TextStyle(color: Colors.white),
+                contentPadding:
+                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Color.fromRGBO(106, 50, 159, 1), width: 1.0),
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                      color: Color.fromRGBO(106, 50, 159, 1), width: 3.0),
+                  borderRadius: BorderRadius.all(Radius.circular(32.0)),
+                ),
+              ),
+            ),
+
+            SizedBox(
+              height: 18.0,
             ),
             TextFormField(
               controller: emailController,
@@ -83,11 +116,18 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
             SizedBox(
               height: 18.0,
             ),
-            TextField(
-              style: TextStyle(color: Colors.white),
-              onChanged: (text) {},
+            TextFormField(
+              controller: passwordController,
+              style: const TextStyle(color: Colors.white),
+              onChanged: (value) {
+                setState(() {
+                  passwordErrorText = isValidPassword(value);
+                });
+              },
               decoration: InputDecoration(
-                hintText: 'Enter your password.',
+                filled: true,
+                hintText: 'Enter your password',
+                errorText: isValidPassword(passwordController.text),
                 hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
