@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:reddit_sos/tabs_screen.dart';
+import 'package:reddit_sos/user.dart';
 
 isValidEmail(String email) {
   if (email.isNotEmpty) {
@@ -14,14 +17,12 @@ isValidEmail(String email) {
 
 isValidPassword(String pass) {
   if (pass.length >= 8) {
-
-      if (RegExp(
-          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-          .hasMatch(pass)) {
-        return null;
-      }
+    if (RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+        .hasMatch(pass)) {
+      return null;
     }
-    return "Not a valid password";
+  }
+  return "Not a valid password";
 }
 
 class RegistrationScreen extends StatefulWidget {
@@ -36,6 +37,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   String? emailErrorText;
   TextEditingController passwordController = TextEditingController();
   String? passwordErrorText;
+  TextEditingController userNameController = TextEditingController();
+  bool goNextPage = false;
+  String _log = '';
 
   @override
   Widget build(BuildContext context) {
@@ -57,13 +61,14 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 18.0,
             ),
             TextField(
+              controller: userNameController,
               style: TextStyle(color: Colors.white),
               onChanged: (text) {},
               decoration: InputDecoration(
-                hintText: 'Enter your Username.',
+                hintText: 'Enter your Username',
                 hintStyle: TextStyle(color: Colors.white),
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
@@ -79,7 +84,6 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 ),
               ),
             ),
-
             SizedBox(
               height: 18.0,
             ),
@@ -157,7 +161,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, tabsScreen.id);
+                    sendInfoToServer(userNameController.text,
+                        emailController.text, passwordController.text);
                   },
                   minWidth: 200.0,
                   height: 42.0,
@@ -172,5 +177,30 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
         ),
       ),
     );
+  }
+
+  sendInfoToServer(String userName, String email, String passWord) async {
+    String request = "signUp\n$userName/$email/$passWord\u0000";
+    await Socket.connect("10.0.2.2", 1111).then((ServerSocket) {
+      ServerSocket.write(request);
+      ServerSocket.flush();
+      ServerSocket.listen((response) {
+        print(checkResponse(String.fromCharCodes(response)));
+        setState(() {
+          _log += (String.fromCharCodes(response));
+        });
+      });
+    });
+  }
+
+  String checkResponse(String data) {
+    switch (data) {
+      case "0":
+        goNextPage = false;
+        return "please fill in all of the fields";
+      case "1":
+        Navigator.pushNamed(context, tabsScreen.id);
+    }
+    return "";
   }
 }
