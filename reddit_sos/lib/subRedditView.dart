@@ -85,7 +85,7 @@ class subRedditView extends StatelessWidget {
               title: Row(
                 children: [
                   Text(
-                    "u/" + thePost.poster.UserName,
+                    "u/" + thePost.poster.userName,
                     style: TextStyle(
                       color: Colors.purple,
                     ),

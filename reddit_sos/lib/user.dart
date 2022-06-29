@@ -1,8 +1,10 @@
 import './subReddit.dart';
 
 class user {
-  String UserName;
+  String userName;
+  String email;
+  String passWord;
   List<subReddit> joinedSubReddits;
   String profilePic;
-  user(this.UserName, this.joinedSubReddits, this.profilePic);
+  user(this.userName, this.email, this.passWord, this.joinedSubReddits, this.profilePic);
 }

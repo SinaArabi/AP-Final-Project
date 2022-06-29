@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 import 'package:reddit_sos/user.dart';
 
@@ -38,7 +39,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   TextEditingController passwordController = TextEditingController();
   String? passwordErrorText;
   TextEditingController userNameController = TextEditingController();
-  bool goNextPage = false;
+
   String _log = '';
 
   @override
@@ -196,10 +197,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   String checkResponse(String data) {
     switch (data) {
       case "0":
-        goNextPage = false;
         return "please fill in all of the fields";
       case "1":
+        mainUserName = userNameController.text;
         Navigator.pushNamed(context, tabsScreen.id);
+        break;
     }
     return "";
   }

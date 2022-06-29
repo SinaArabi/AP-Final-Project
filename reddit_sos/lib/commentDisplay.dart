@@ -25,7 +25,7 @@ commentComponent(comment cm) {
           ),
         ),
         title: Text(
-          cm.commentposter.UserName +
+          cm.commentposter.userName +
               " . " +
               DateFormat.yMMMEd().format(cm.commentDate),
           style: TextStyle(

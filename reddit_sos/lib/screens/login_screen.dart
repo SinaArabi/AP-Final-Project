@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:reddit_sos/feed.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 import '../icon.dart';
 import '../line.dart';
@@ -39,7 +40,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController passwordController = TextEditingController();
   String? passwordErrorText;
   TextEditingController userNameController = TextEditingController();
-  bool goNextPage = false;
   String _log = '';
 
   @override
@@ -118,6 +118,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
             ),
+            Text(
+              _log,
+              style: TextStyle(color: Colors.blue, fontSize: 20),
+            ),
             SizedBox(
               height: 10.0,
             ),
@@ -129,7 +133,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 elevation: 5.0,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.pushNamed(context, tabsScreen.id);
+                    sendInfoToServer(
+                        userNameController.text, passwordController.text);
                   },
                   minWidth: 200.0,
                   height: 42.0,
@@ -167,15 +172,14 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  sendInfoToServer(String userName, String email, String passWord) async {
-    String request = "login\n$userName/$email/$passWord\u0000";
+  sendInfoToServer(String userName, String passWord) async {
+    String request = "login\n$userName/$passWord\u0000";
     await Socket.connect("10.0.2.2", 1111).then((ServerSocket) {
       ServerSocket.write(request);
       ServerSocket.flush();
       ServerSocket.listen((response) {
-        print(checkResponse(String.fromCharCodes(response)));
         setState(() {
-          _log += (String.fromCharCodes(response));
+          _log += (checkResponse(String.fromCharCodes(response)));
         });
       });
     });
@@ -184,15 +188,15 @@ class _LoginScreenState extends State<LoginScreen> {
   String checkResponse(String data) {
     switch (data) {
       case "0":
-        goNextPage = false;
-        return "please fill in all of the fields";
+        return "Please fill in all of the fields\n";
       case "1":
+        mainUserName = userNameController.text;
         Navigator.pushNamed(context, tabsScreen.id);
+        break;
+      case "2":
+        return "user not found\n";
+        break;
     }
-    return "";
-  }
-
-  String userCheck(String data) {
     return "";
   }
 }

@@ -48,7 +48,7 @@ class feed extends StatelessWidget {
               subtitle: Row(
                 children: [
                   Text(
-                    "u/" + thePost.poster.UserName,
+                    "u/" + thePost.poster.userName,
                     style: TextStyle(
                       color: Colors.purple,
                     ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:reddit_sos/about.dart';
 import 'package:reddit_sos/feed.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/screens/EditProfile.dart';
 import 'package:reddit_sos/subRedditPage.dart';
 import 'package:reddit_sos/tabs_screen.dart';
@@ -42,7 +43,8 @@ class _SettingScreenState extends State<Setting> {
                             height: 10.0,
                           ),
                           Text(
-                            'John Doe',
+                            // 'John Doe',
+                            mainUserName,
                             style: TextStyle(
                               fontSize: 20.0,
                               color: Colors.white,

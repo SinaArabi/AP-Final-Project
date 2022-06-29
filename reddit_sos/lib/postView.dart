@@ -94,7 +94,7 @@ class _postViewState extends State<postView> {
                 subtitle: Row(
                   children: [
                     Text(
-                      "u/" + widget.chosenPost.poster.UserName,
+                      "u/" + widget.chosenPost.poster.userName,
                       style: TextStyle(
                         color: Colors.purple,
                       ),
