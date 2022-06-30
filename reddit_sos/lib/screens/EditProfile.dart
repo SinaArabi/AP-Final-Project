@@ -1,14 +1,18 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/global.dart';
+import 'package:reddit_sos/tabs_screen.dart';
+import 'package:reddit_sos/user.dart';
 
 class EditProfile extends StatefulWidget {
+  static const String id = "EditProfile_screen";
   @override
   _EditProfile createState() => _EditProfile();
 }
 
 class _EditProfile extends State<EditProfile> {
-  static const String id = "EditProfile_screen";
+  
   TextEditingController passwordController = TextEditingController();
   String? passwordErrorText;
   TextEditingController emailController = TextEditingController();
@@ -97,6 +101,7 @@ class _EditProfile extends State<EditProfile> {
                 child: MaterialButton(
                   onPressed: () {
                     sendInfoToServer(emailController.text, passwordController.text);
+                    Navigator.pushNamed(context, tabsScreen.id);
                   },
                   minWidth: 200.0,
                   height: 42.0,
@@ -114,7 +119,7 @@ class _EditProfile extends State<EditProfile> {
   }
 
   sendInfoToServer(String email, String passWord) async {
-    String request = "editProfile\n$email/$passWord\u0000";
+    String request = "editProfile\n$mainUserName/$email/$passWord\u0000";
     await Socket.connect("10.0.2.2", 1111).then((ServerSocket) {
       ServerSocket.write(request);
       ServerSocket.flush();
