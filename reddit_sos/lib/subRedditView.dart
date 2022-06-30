@@ -1,4 +1,4 @@
-
+import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -11,11 +11,17 @@ import 'package:reddit_sos/subRedditPage.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 import './post.dart';
 
-class subRedditView extends StatelessWidget {
-  static const String id="_screen";
+class subRedditView extends StatefulWidget {
+  static const String id = "_screen";
   final subReddit chosenSubReddit;
   subRedditView(this.chosenSubReddit);
 
+  @override
+  State<subRedditView> createState() => _subRedditViewState();
+}
+
+class _subRedditViewState extends State<subRedditView> {
+  bool isJoined = false;
   subRedditCard() {
     return ListTile(
       title: Column(
@@ -24,7 +30,7 @@ class subRedditView extends StatelessWidget {
           SizedBox(
             height: 25,
           ),
-          Text("r/" + chosenSubReddit.subName,
+          Text("r/" + widget.chosenSubReddit.subName,
               style: TextStyle(color: Colors.white, fontSize: 18)),
         ],
       ),
@@ -40,10 +46,17 @@ class subRedditView extends StatelessWidget {
           OutlinedButton(
             style: OutlinedButton.styleFrom(
               primary: Colors.white,
-              backgroundColor: Colors.teal,
+              backgroundColor: isJoined ? Colors.teal : Colors.purple,
             ),
-            onPressed: () {},
-            child: Text("Joined"), //need to check if user is joined or not!
+            onPressed: () {
+              setState(() {
+                isJoined = !isJoined;
+              });
+              sendInfoToServer(widget.chosenSubReddit.subName, isJoined);
+            },
+            child: isJoined
+                ? Text("Joined")
+                : Text("Join"), //need to check if user is joined or not!
           ),
         ],
       ),
@@ -52,11 +65,11 @@ class subRedditView extends StatelessWidget {
         children: [
           SizedBox(height: 20),
           Text(
-            chosenSubReddit.members.toString() + " members",
+            widget.chosenSubReddit.members.toString() + " members",
             style: TextStyle(color: Colors.grey, fontSize: 12),
           ),
           Text(
-            chosenSubReddit.aboutSub,
+            widget.chosenSubReddit.aboutSub,
             style: TextStyle(color: Colors.white, fontSize: 14),
           )
         ],
@@ -180,7 +193,11 @@ class subRedditView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        leading: IconButton( icon: Icon(Icons.arrow_back_rounded), onPressed: () {Navigator.pushNamed(context, tabsScreen.id );}),
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_rounded),
+            onPressed: () {
+              Navigator.pushNamed(context, tabsScreen.id);
+            }),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),
@@ -197,7 +214,7 @@ class subRedditView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(30),
                             borderSide:
                                 BorderSide(color: Colors.purple, width: 2.0)),
-                        labelText: "r/" + chosenSubReddit.subName,
+                        labelText: "r/" + widget.chosenSubReddit.subName,
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         suffixIcon: Icon(
                           Icons.search,
@@ -227,7 +244,7 @@ class subRedditView extends StatelessWidget {
                 height: 80,
                 child: ClipOval(
                   child: Image.asset(
-                    chosenSubReddit.image,
+                    widget.chosenSubReddit.image,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -253,16 +270,16 @@ class subRedditView extends StatelessWidget {
                         children: <Widget>[
                           Container(
                             child: ListView.builder(
-                                itemCount:
-                                    chosenSubReddit.subRedditPosts.length,
+                                itemCount: widget
+                                    .chosenSubReddit.subRedditPosts.length,
                                 itemBuilder: (context, index) {
-                                  return subRedditPostComponent(
-                                      chosenSubReddit.subRedditPosts[index]);
+                                  return subRedditPostComponent(widget
+                                      .chosenSubReddit.subRedditPosts[index]);
                                 }),
                           ),
                           Container(
                             child: Center(
-                              child: Text(chosenSubReddit.aboutSub,
+                              child: Text(widget.chosenSubReddit.aboutSub,
                                   style: TextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
@@ -280,5 +297,14 @@ class subRedditView extends StatelessWidget {
         ]),
       ),
     );
+  }
+
+  sendInfoToServer(String subReddit, bool isJoined) async {
+    String request = "joinSubreddit\n$subReddit/$isJoined\u0000";
+    await Socket.connect("10.0.2.2", 1111).then((ServerSocket) {
+      ServerSocket.write(request);
+      ServerSocket.flush();
+      ServerSocket.listen((response) {});
+    });
   }
 }
