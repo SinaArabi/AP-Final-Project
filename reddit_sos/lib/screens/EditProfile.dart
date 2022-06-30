@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 import 'package:reddit_sos/user.dart';
+import '../global.dart';
 
 class EditProfile extends StatefulWidget {
   static const String id = "EditProfile_screen";
@@ -20,7 +21,7 @@ class _EditProfile extends State<EditProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: bgColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -38,13 +39,13 @@ class _EditProfile extends State<EditProfile> {
             ),
             TextField(
               controller: emailController,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: txtColor),
               onChanged: (value) {
                 //Do something with the user input.
               },
               decoration: InputDecoration(
                 hintText: 'Enter your new email',
-                hintStyle: TextStyle(color: Colors.white),
+                hintStyle: TextStyle(color: txtColor),
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
@@ -52,12 +53,12 @@ class _EditProfile extends State<EditProfile> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                      color: Color.fromRGBO(106, 50, 159, 1), width: 1.0),
+                      color:tabScreenColor, width: 1.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                      color: Color.fromRGBO(106, 50, 159, 1), width: 3.0),
+                      color: tabScreenColor, width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -67,11 +68,11 @@ class _EditProfile extends State<EditProfile> {
             ),
             TextField(
               controller: passwordController,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: txtColor),
               onChanged: (value) {},
               decoration: InputDecoration(
                 hintText: 'Enter your new password.',
-                hintStyle: TextStyle(color: Colors.white),
+                hintStyle: TextStyle(color: txtColor),
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
                 border: OutlineInputBorder(
@@ -79,12 +80,12 @@ class _EditProfile extends State<EditProfile> {
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                      color: Color.fromRGBO(106, 50, 159, 1), width: 1.0),
+                      color: tabScreenColor, width: 1.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                      color: Color.fromRGBO(106, 50, 159, 1), width: 3.0),
+                      color: tabScreenColor, width: 3.0),
                   borderRadius: BorderRadius.all(Radius.circular(32.0)),
                 ),
               ),
@@ -95,7 +96,7 @@ class _EditProfile extends State<EditProfile> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: 16.0),
               child: Material(
-                color: Color.fromRGBO(106, 50, 159, 1),
+                color: tabScreenColor,
                 borderRadius: BorderRadius.all(Radius.circular(30.0)),
                 elevation: 5.0,
                 child: MaterialButton(

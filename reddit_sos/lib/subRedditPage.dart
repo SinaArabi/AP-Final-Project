@@ -1,6 +1,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/subRedditView.dart';
 import './subReddit.dart';
 
@@ -62,7 +63,7 @@ class _subRedditPageState extends State<subRedditPage> {
           title: Text(
             "r/" + sub.subName,
             style: TextStyle(
-              color: Colors.white,
+              color: txtColor,
             ),
           ),
           
@@ -75,7 +76,7 @@ class _subRedditPageState extends State<subRedditPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: bgColor,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -84,21 +85,21 @@ class _subRedditPageState extends State<subRedditPage> {
               height: 20,
             ),
             TextField(
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: txtColor),
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                      borderSide: BorderSide(color:txtColor, width: 1.0)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.purple, width: 2.0)),
+                      borderSide: BorderSide(color: tabScreenColor, width: 2.0)),
                   labelText: 'Search',
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   suffixIcon: Icon(
                     Icons.search,
-                    color: Colors.white,
+                    color: txtColor,
                   ),
-                  labelStyle: TextStyle(color: Colors.white)),
+                  labelStyle: TextStyle(color: txtColor)),
               onChanged: (value) => _runSearch(value),
             ),
             SizedBox(

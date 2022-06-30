@@ -6,6 +6,7 @@ import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/subReddit.dart';
 import './post.dart';
 import './tabs_screen.dart';
+import './global.dart';
 
 class addPost extends StatefulWidget {
   static const String id = "addPost_screen";
@@ -28,26 +29,26 @@ class _addPostState extends State<addPost> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: bgColor,
         leading: IconButton(
             onPressed: () {Navigator.pushNamed(context, tabsScreen.id );},
             icon: Icon(
               Votes.cancel_1,
-              color: Colors.white,
+              color: txtColor,
             )),
         actions: [
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: Theme.of(context).primaryColor),
+                primary: bgColor),
             onPressed:  () {Navigator.pushNamed(context, tabsScreen.id );},
             child: Text(
               "Done",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: txtColor),
             ),
           )
         ],
       ),
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: bgColor,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
@@ -68,7 +69,7 @@ class _addPostState extends State<addPost> {
                 items: widget.subRedditsList
                     .map(
                       (sub) => DropdownMenuItem<String>(
-                          value: sub.subName, child: Text(sub.subName, style: TextStyle(color: Colors.white),)),
+                          value: sub.subName, child: Text(sub.subName, style: TextStyle(color: txtColor),)),
                     )
                     .toList(),
                 onChanged: (newValue) =>
@@ -83,22 +84,22 @@ class _addPostState extends State<addPost> {
                 padding: const EdgeInsets.all(8.0),
                 child: Column(children: [
                   TextField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: txtColor),
                     decoration: (InputDecoration(
                       hintText: 'Add a title',
                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      hintStyle: TextStyle(color: Colors.white),
+                      hintStyle: TextStyle(color: txtColor),
                     )),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   TextField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: txtColor),
                     decoration: (InputDecoration(
                       hintText: 'Add a body text',
                       floatingLabelBehavior: FloatingLabelBehavior.never,
-                      hintStyle: TextStyle(color: Colors.white),
+                      hintStyle: TextStyle(color: txtColor),
                     )),
                   ),
                 ]),

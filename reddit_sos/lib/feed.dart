@@ -7,6 +7,7 @@ import 'package:reddit_sos/postView.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 import './post.dart';
 import './commentDisplay.dart';
+import './global.dart';
 
 class feed extends StatelessWidget {
   static const String id = "feed_screen";
@@ -42,7 +43,7 @@ class feed extends StatelessWidget {
               title: Text(
                 "r/" + thePost.postSource.subName,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: txtColor,
                 ),
               ),
               subtitle: Row(
@@ -50,7 +51,7 @@ class feed extends StatelessWidget {
                   Text(
                     "u/" + thePost.poster.userName,
                     style: TextStyle(
-                      color: Colors.purple,
+                      color: tabScreenColor,
                     ),
                   ),
                   Text(
@@ -61,7 +62,7 @@ class feed extends StatelessWidget {
               ),
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),
-                color: Colors.white,
+                color: txtColor,
                 onPressed: () {},
               ),
             ),
@@ -73,14 +74,14 @@ class feed extends StatelessWidget {
                 Text(
                   thePost.postTitle,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
+                      fontWeight: FontWeight.bold, color: txtColor),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
                   thePost.postContent,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color:txtColor),
                 ),
                 SizedBox(
                   height: 10,
@@ -94,12 +95,12 @@ class feed extends StatelessWidget {
                         ),
                         label: Text(thePost.upVotes.toString()),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary: Colors.white),
+                        style: TextButton.styleFrom(primary: txtColor),
                       ),
                       IconButton(
                         icon: Icon(
                           Votes.down_bold,
-                          color: Colors.white,
+                          color: txtColor,
                         ),
                         onPressed: () {},
                       ),
@@ -113,7 +114,7 @@ class feed extends StatelessWidget {
                         ),
                         label: Text(thePost.commentsCounter.toString()),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary: Colors.white),
+                        style: TextButton.styleFrom(primary:txtColor),
                       ),
                       SizedBox(
                         width: 20,
@@ -125,7 +126,7 @@ class feed extends StatelessWidget {
                         ),
                         label: Text("Share"),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary: Colors.white),
+                        style: TextButton.styleFrom(primary: txtColor),
                       ),
                     ],
                   ),
@@ -141,7 +142,7 @@ class feed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: bgColor,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -150,21 +151,21 @@ class feed extends StatelessWidget {
               height: 20,
             ),
             TextField(
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: txtColor),
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
+                      borderSide: BorderSide(color: txtColor, width: 1.0)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: Colors.purple, width: 2.0)),
+                      borderSide: BorderSide(color: tabScreenColor, width: 2.0)),
                   labelText: 'Search',
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   suffixIcon: Icon(
                     Icons.search,
-                    color: Colors.white,
+                    color:txtColor,
                   ),
-                  labelStyle: TextStyle(color: Colors.white)),
+                  labelStyle: TextStyle(color: txtColor)),
               onChanged: (value) => {},
             ),
             SizedBox(

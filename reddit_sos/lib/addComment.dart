@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/postView.dart';
 import './post.dart';
+import 'global.dart';
 
 class addComment extends StatelessWidget {
 
@@ -15,7 +17,7 @@ class addComment extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: bgColor,
         leading: Wrap(
           direction: Axis.vertical,
           alignment: WrapAlignment.center,
@@ -31,9 +33,9 @@ class addComment extends StatelessWidget {
               },
                 icon: Icon(
                   Votes.cancel_1,
-                  color: Colors.white,
+                  color: txtColor,
                 )),
-                Text("Add comment", style: TextStyle(color: Colors.white, fontSize: 18),),
+                Text("Add comment", style: TextStyle(color: txtColor, fontSize: 18),),
           ],
         ),
         actions: [
@@ -43,12 +45,12 @@ class addComment extends StatelessWidget {
             onPressed: () {},
             child: Text(
               "Post",
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: txtColor),
             ),
           )
         ],
       ),
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: bgColor,
       body: Column(
         children: [
           Container(
@@ -65,11 +67,11 @@ class addComment extends StatelessWidget {
                 ),
                 SizedBox(height: 20,),
                 TextField(
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: txtColor),
                   decoration: (InputDecoration(
                     hintText: 'Add your comment',
                     floatingLabelBehavior: FloatingLabelBehavior.never,
-                    hintStyle: TextStyle(color: Colors.white, fontSize: 14),
+                    hintStyle: TextStyle(color:txtColor, fontSize: 14),
                   )),
                 ),
               ]),
