@@ -5,9 +5,15 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/postView.dart';
 import 'package:reddit_sos/tabs_screen.dart';
+import 'package:shamsi_date/shamsi_date.dart';
 import './post.dart';
 import './commentDisplay.dart';
 import './global.dart';
+String format1(Jalali d) {
+  final f = d.formatter;
+
+  return '${f.wN} ${f.d} ${f.mN} ${f.yy}';
+}
 
 class feed extends StatelessWidget {
   static const String id = "feed_screen";
@@ -55,7 +61,7 @@ class feed extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    " . " + DateFormat.yMMMEd().format(thePost.postDate),
+                    " . " + format1(j),
                     style: TextStyle(color: Colors.blueAccent),
                   ),
                 ],

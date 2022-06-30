@@ -10,7 +10,13 @@ import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/subReddit.dart';
 import 'package:reddit_sos/subRedditPage.dart';
 import 'package:reddit_sos/tabs_screen.dart';
+import 'package:shamsi_date/shamsi_date.dart';
 import './post.dart';
+String format1(Jalali d) {
+  final f = d.formatter;
+
+  return '${f.wN} ${f.d} ${f.mN} ${f.yy}';
+}
 
 class subRedditView extends StatefulWidget {
   static const String id = "_screen";
@@ -105,7 +111,7 @@ class _subRedditViewState extends State<subRedditView> {
                     ),
                   ),
                   Text(
-                    " . " + DateFormat.yMMMEd().format(thePost.postDate),
+                    " . " + format1(j),
                     style: TextStyle(color: Colors.blueAccent),
                   ),
                 ],

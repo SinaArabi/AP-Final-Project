@@ -1,7 +1,10 @@
 library my_prj.globals;
 import 'package:flutter/material.dart';
+import 'package:shamsi_date/shamsi_date.dart';
 bool isDarked=false;
 Color bgColor=Colors.black;
 Color txtColor=Colors.white;
 Color tabScreenColor=Color.fromRGBO(106, 50, 159, 1);
+DateTime dt = DateTime.now();
+Jalali j = dt.toJalali();
 String mainUserName = "" ;

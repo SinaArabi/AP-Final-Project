@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shamsi_date/shamsi_date.dart';
 import './user.dart';
 
 class comment {
@@ -6,7 +7,7 @@ class comment {
   String commentContent;
   int upVotes;
   int downVotes;
-  DateTime commentDate;
+  Jalali commentDate;
   comment(
       this.commentposter, this.commentContent, this.upVotes, this.downVotes, this.commentDate);
 }

@@ -1,12 +1,13 @@
 import 'package:reddit_sos/comment.dart';
 import 'package:reddit_sos/user.dart';
+import 'package:shamsi_date/shamsi_date.dart';
 
 import './subReddit.dart';
 
 class post {
   subReddit postSource;
   user poster;
-  DateTime postDate;
+  Jalali postDate;
   String postTitle;
   String postContent;
   int upVotes;
