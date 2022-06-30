@@ -21,7 +21,7 @@ class _SettingScreenState extends State<Setting> {
       body: Stack(
         children: [
           Container(
-            color: Colors.black,
+            color: bgColor,
 
           ),
           SafeArea(
@@ -47,14 +47,14 @@ class _SettingScreenState extends State<Setting> {
                             mainUserName,
                             style: TextStyle(
                               fontSize: 20.0,
-                              color: Colors.white,
+                              color: txtColor,
                             ),
                           ),
                         ],
                       ),
                     ),
                     Container(
-                      color: Color.fromRGBO(106, 50, 159, 1),
+                      color: tabScreenColor,
                       width: double.infinity,
                       height: 1.0,
                     ),
@@ -62,11 +62,11 @@ class _SettingScreenState extends State<Setting> {
                         child: ListView(children: [
                           ListTile(
 
-                            leading: Icon(Icons.home,color:Colors.white ,),
+                            leading: Icon(Icons.home,color:txtColor ,),
                             title: Text(
                               'Home',
                               style: TextStyle(
-                                  color: Colors.white
+                                  color: txtColor
                               ),
                             ),
                             onTap: () {
@@ -74,16 +74,16 @@ class _SettingScreenState extends State<Setting> {
                             },
                           ),
                           Container(
-                            color: Color.fromRGBO(106, 50, 159, 1),
+                            color: tabScreenColor,
                             width: double.infinity,
                             height: 1.0,
                           ),
                           ListTile(
-                            leading: Icon(Icons.person,color:Colors.white ,),
+                            leading: Icon(Icons.person,color:txtColor ,),
                             title: Text(
                               'Edit Profile',
                               style: TextStyle(
-                                  color: Colors.white
+                                  color: txtColor
                               ),
                             ),
                             onTap: () {
@@ -91,16 +91,16 @@ class _SettingScreenState extends State<Setting> {
                             },
                           ),
                           Container(
-                            color: Color.fromRGBO(106, 50, 159, 1),
+                            color: tabScreenColor,
                             width: double.infinity,
                             height: 1.0,
                           ),
                           ListTile(
-                            leading: Icon(Icons.people,color:Colors.white ,),
+                            leading: Icon(Icons.people,color:txtColor ,),
                             title: Text(
                               'Community',
                               style: TextStyle(
-                                  color: Colors.white
+                                  color: txtColor
                               ),
                             ),
                             onTap: () {
@@ -114,11 +114,11 @@ class _SettingScreenState extends State<Setting> {
                             height: 1.0,
                           ),
                           ListTile(
-                            leading: Icon(Icons.save,color:Colors.white ,),
+                            leading: Icon(Icons.save,color:txtColor ,),
                             title: Text(
                               'Saved Post',
                               style: TextStyle(
-                                color: Colors.white,
+                                color: txtColor,
                               ),
                             ),
                             onTap: () {
@@ -126,16 +126,16 @@ class _SettingScreenState extends State<Setting> {
                             },
                           ),
                           Container(
-                            color: Color.fromRGBO(106, 50, 159, 1),
+                            color: tabScreenColor,
                             width: double.infinity,
                             height: 1.0,
                           ),
                           ListTile(
-                            leading: Icon(Icons.info,color:Colors.white,),
+                            leading: Icon(Icons.info,color:txtColor,),
                             title: Text(
                               'About',
                               style: TextStyle(
-                                  color: Colors.white
+                                  color: txtColor
                               ),
                             ),
                             onTap: () {

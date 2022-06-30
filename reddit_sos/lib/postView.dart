@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/addComment.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/icons.dart';
 import 'main.dart';
 import './post.dart';
@@ -49,9 +50,10 @@ class _postViewState extends State<postView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: bgColor,
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
+            color: txtColor,
             onPressed: () {
               Navigator.pushNamed(context, tabsScreen.id);
             }),
@@ -67,7 +69,7 @@ class _postViewState extends State<postView> {
           ),
         ],
       ),
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: bgColor,
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(10.0),
@@ -88,7 +90,7 @@ class _postViewState extends State<postView> {
                 title: Text(
                   "r/" + widget.chosenPost.postSource.subName,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: txtColor,
                   ),
                 ),
                 subtitle: Row(
@@ -96,7 +98,7 @@ class _postViewState extends State<postView> {
                     Text(
                       "u/" + widget.chosenPost.poster.userName,
                       style: TextStyle(
-                        color: Colors.purple,
+                        color: tabScreenColor,
                       ),
                     ),
                     Text(
@@ -116,14 +118,14 @@ class _postViewState extends State<postView> {
                   Text(
                     widget.chosenPost.postTitle,
                     style: TextStyle(
-                        fontWeight: FontWeight.bold, color: Colors.white),
+                        fontWeight: FontWeight.bold, color: txtColor),
                   ),
                   SizedBox(
                     height: 20,
                   ),
                   Text(
                     widget.chosenPost.postContent,
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: txtColor),
                   ),
                   SizedBox(
                     height: 10,
@@ -139,12 +141,12 @@ class _postViewState extends State<postView> {
                           onPressed: () => _upVote(
                               widget.chosenPost.upVoteIsPressed,
                               widget.chosenPost.downVoteIsPressed),
-                          style: TextButton.styleFrom(primary: Colors.white),
+                          style: TextButton.styleFrom(primary:txtColor),
                         ),
                         IconButton(
                           icon: Icon(
                             Votes.down_bold,
-                            color: Colors.white,
+                            color: txtColor,
                           ),
                           onPressed: () => _downVote(
                               widget.chosenPost.upVoteIsPressed,
@@ -161,7 +163,7 @@ class _postViewState extends State<postView> {
                           label: Text(
                               widget.chosenPost.commentsCounter.toString()),
                           onPressed: () {},
-                          style: TextButton.styleFrom(primary: Colors.white),
+                          style: TextButton.styleFrom(primary: txtColor),
                         ),
                         SizedBox(
                           width: 20,
@@ -173,7 +175,7 @@ class _postViewState extends State<postView> {
                           ),
                           label: Text("Share"),
                           onPressed: () {},
-                          style: TextButton.styleFrom(primary: Colors.white),
+                          style: TextButton.styleFrom(primary: txtColor),
                         ),
                       ],
                     ),
@@ -200,7 +202,7 @@ class _postViewState extends State<postView> {
                         builder: (context) => addComment(widget.chosenPost),
                       ),
                     ),
-                    color: Color.fromRGBO(106, 50, 159, 1),
+                    color: tabScreenColor,
                     child: Text('Add Comment',
                         style: TextStyle(color: Colors.white)),
                   ),

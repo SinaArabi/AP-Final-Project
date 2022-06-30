@@ -6,6 +6,7 @@ import 'package:reddit_sos/icons.dart';
 
 import './post.dart';
 import './comment.dart';
+import "./global.dart";
 
 commentComponent(comment cm) {
   return Column(
@@ -29,7 +30,7 @@ commentComponent(comment cm) {
               " . " +
               DateFormat.yMMMEd().format(cm.commentDate),
           style: TextStyle(
-            color: Colors.white,
+            color: txtColor,
           ),
         ),
       ),
@@ -38,7 +39,7 @@ commentComponent(comment cm) {
         child: Text(
           cm.commentContent,
           style: TextStyle(
-            color: Colors.white,
+            color: txtColor,
           ),
         ),
       ),
@@ -49,13 +50,13 @@ commentComponent(comment cm) {
             IconButton(
               onPressed: () {},
               icon: Icon(Icons.more_horiz),
-              color: Colors.white,
+              color: txtColor,
             ),
             TextButton.icon(
               onPressed: () {},
               icon: Icon(Icons.reply_outlined),
               label: Text("Reply"),
-              style: TextButton.styleFrom(primary: Colors.white),
+              style: TextButton.styleFrom(primary: txtColor),
             ),
             TextButton.icon(
               icon: Icon(
@@ -63,12 +64,12 @@ commentComponent(comment cm) {
               ),
               label: Text(cm.upVotes.toString()),
               onPressed: () {},
-              style: TextButton.styleFrom(primary: Colors.white),
+              style: TextButton.styleFrom(primary: txtColor),
             ),
             IconButton(
               icon: Icon(
                 Votes.down_bold,
-                color: Colors.white,
+                color: txtColor,
               ),
               onPressed: () {},
             ),

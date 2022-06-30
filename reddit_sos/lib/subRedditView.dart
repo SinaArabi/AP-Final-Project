@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/feed.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/icons.dart';
 import 'package:reddit_sos/subReddit.dart';
 import 'package:reddit_sos/subRedditPage.dart';
@@ -31,7 +32,7 @@ class _subRedditViewState extends State<subRedditView> {
             height: 25,
           ),
           Text("r/" + widget.chosenSubReddit.subName,
-              style: TextStyle(color: Colors.white, fontSize: 18)),
+              style: TextStyle(color: txtColor, fontSize: 18)),
         ],
       ),
       trailing: Wrap(
@@ -39,14 +40,14 @@ class _subRedditViewState extends State<subRedditView> {
           IconButton(
             icon: Icon(
               Icons.notifications_none_rounded,
-              color: Colors.white,
+              color: txtColor,
             ),
             onPressed: () {},
           ),
           OutlinedButton(
             style: OutlinedButton.styleFrom(
               primary: Colors.white,
-              backgroundColor: isJoined ? Colors.teal : Colors.purple,
+              backgroundColor: isJoined ? Colors.teal : tabScreenColor,
             ),
             onPressed: () {
               setState(() {
@@ -70,7 +71,7 @@ class _subRedditViewState extends State<subRedditView> {
           ),
           Text(
             widget.chosenSubReddit.aboutSub,
-            style: TextStyle(color: Colors.white, fontSize: 14),
+            style: TextStyle(color: txtColor, fontSize: 14),
           )
         ],
       ),
@@ -100,7 +101,7 @@ class _subRedditViewState extends State<subRedditView> {
                   Text(
                     "u/" + thePost.poster.userName,
                     style: TextStyle(
-                      color: Colors.purple,
+                      color: tabScreenColor,
                     ),
                   ),
                   Text(
@@ -111,7 +112,7 @@ class _subRedditViewState extends State<subRedditView> {
               ),
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),
-                color: Colors.white,
+                color: txtColor,
                 onPressed: () {},
               ),
             ),
@@ -123,14 +124,14 @@ class _subRedditViewState extends State<subRedditView> {
                 Text(
                   thePost.postTitle,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Colors.white),
+                      fontWeight: FontWeight.bold, color: txtColor),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
                   thePost.postContent,
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(color: txtColor),
                 ),
                 SizedBox(
                   height: 10,
@@ -144,12 +145,12 @@ class _subRedditViewState extends State<subRedditView> {
                         ),
                         label: Text(thePost.upVotes.toString()),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary: Colors.white),
+                        style: TextButton.styleFrom(primary: txtColor),
                       ),
                       IconButton(
                         icon: Icon(
                           Votes.down_bold,
-                          color: Colors.white,
+                          color: txtColor,
                         ),
                         onPressed: () {},
                       ),
@@ -163,7 +164,7 @@ class _subRedditViewState extends State<subRedditView> {
                         ),
                         label: Text(thePost.commentsCounter.toString()),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary: Colors.white),
+                        style: TextButton.styleFrom(primary: txtColor),
                       ),
                       SizedBox(
                         width: 20,
@@ -175,7 +176,7 @@ class _subRedditViewState extends State<subRedditView> {
                         ),
                         label: Text("Share"),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary: Colors.white),
+                        style: TextButton.styleFrom(primary: txtColor),
                       ),
                     ],
                   ),
@@ -192,9 +193,10 @@ class _subRedditViewState extends State<subRedditView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: bgColor,
         leading: IconButton(
             icon: Icon(Icons.arrow_back_rounded),
+            color: txtColor,
             onPressed: () {
               Navigator.pushNamed(context, tabsScreen.id);
             }),
@@ -207,20 +209,20 @@ class _subRedditViewState extends State<subRedditView> {
                 SizedBox(
                   width: 200,
                   child: TextField(
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: txtColor),
                     decoration: InputDecoration(
                         enabled: false,
                         disabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(30),
                             borderSide:
-                                BorderSide(color: Colors.purple, width: 2.0)),
+                                BorderSide(color: tabScreenColor, width: 2.0)),
                         labelText: "r/" + widget.chosenSubReddit.subName,
                         floatingLabelBehavior: FloatingLabelBehavior.never,
                         suffixIcon: Icon(
                           Icons.search,
-                          color: Colors.white,
+                          color: txtColor,
                         ),
-                        labelStyle: TextStyle(color: Colors.white)),
+                        labelStyle: TextStyle(color: txtColor)),
                   ),
                 ),
                 Icon(Votes.upload_1),
@@ -230,7 +232,7 @@ class _subRedditViewState extends State<subRedditView> {
           ),
         ],
       ),
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: bgColor,
       body: SafeArea(
         child: Column(children: [
           Column(
@@ -257,8 +259,8 @@ class _subRedditViewState extends State<subRedditView> {
                   children: [
                     Container(
                       child: TabBar(
-                          labelColor: Colors.purple,
-                          unselectedLabelColor: Colors.white,
+                          labelColor: tabScreenColor,
+                          unselectedLabelColor: txtColor,
                           tabs: [
                             Tab(child: Text("Posts")),
                             Tab(child: Text("About")),
@@ -283,7 +285,7 @@ class _subRedditViewState extends State<subRedditView> {
                                   style: TextStyle(
                                       fontSize: 24,
                                       fontWeight: FontWeight.bold,
-                                      color: Colors.white)),
+                                      color: txtColor)),
                             ),
                           ),
                         ],

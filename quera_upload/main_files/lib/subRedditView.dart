@@ -180,7 +180,9 @@ class subRedditView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        leading: IconButton( icon: Icon(Icons.arrow_back_rounded), onPressed: () {Navigator.pushNamed(context, tabsScreen.id );}),
+        leading: IconButton( icon: Icon(Icons.arrow_back_rounded),
+            color:,
+            onPressed: () {Navigator.pushNamed(context, tabsScreen.id );}),
         actions: [
           Padding(
             padding: const EdgeInsets.all(10.0),

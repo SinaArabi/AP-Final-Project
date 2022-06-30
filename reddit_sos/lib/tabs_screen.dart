@@ -17,6 +17,21 @@ import 'package:reddit_sos/screens/login_screen.dart';
 import 'package:reddit_sos/screens/registration_screen.dart';
 import 'package:reddit_sos/setting.dart';
 
+import 'global.dart';
+changeTheme() {
+  if (isDarked == true) {
+    bgColor = Colors.white;
+    txtColor = Colors.black;
+    tabScreenColor=Colors.black;
+  }
+  else{
+    bgColor=Colors.black;
+    txtColor=Colors.white;
+    tabScreenColor=Color.fromRGBO(106, 50, 159, 1);
+  }
+}
+
+
 class tabsScreen extends StatefulWidget {
   static const String id = "tab_screen";
   List<post> myPosts = [
@@ -217,7 +232,21 @@ class _tabsScreenState extends State<tabsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Reddit'),
-        backgroundColor: Color.fromRGBO(106, 50, 159, 1),
+        backgroundColor:tabScreenColor,
+        leading: IconButton(
+          alignment: Alignment.centerRight,
+          icon: Icon(Icons.nightlight),
+
+          onPressed: () {
+            setState(() {
+              isDarked = !isDarked;
+            });
+
+
+            changeTheme();
+
+          },
+        ),
       ),
       body: PageView(
         controller: pageController,
@@ -230,33 +259,33 @@ class _tabsScreenState extends State<tabsScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: bgColor,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: Colors.white,
+              color: txtColor,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Votes.th_thumb,
-              color: Colors.white,
+              color: txtColor,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.add,
-              color: Colors.white,
+              color: txtColor,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings_outlined,
-              color: Colors.white,
+              color: txtColor,
             ),
             label: '',
           ),

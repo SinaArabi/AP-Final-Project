@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 
 class About extends StatefulWidget {
@@ -11,7 +12,7 @@ class _AboutScreen extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: bgColor,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -40,7 +41,7 @@ class _AboutScreen extends State<About> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 20.0,
-                    color: Color.fromRGBO(106, 50, 159, 1),
+                    color: tabScreenColor,
                     )),
             SizedBox(height: 28.0),
             Container(
@@ -61,14 +62,14 @@ class _AboutScreen extends State<About> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     fontSize: 30.0,
-                    color: Color.fromRGBO(106, 50, 159, 1),
+                    color: tabScreenColor,
                     fontWeight: FontWeight.bold)),
             SizedBox(height: 8.0),
             Text("Flutter Developer",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20.0,
-                  color: Color.fromRGBO(106, 50, 159, 1),
+                  color: tabScreenColor,
                 )),
 
       ]),
