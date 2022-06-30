@@ -259,33 +259,33 @@ class _tabsScreenState extends State<tabsScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
-        backgroundColor: bgColor,
+        backgroundColor:tabScreenColor,
         items: [
           BottomNavigationBarItem(
             icon: Icon(
               Icons.home,
-              color: txtColor,
+              color: Colors.white,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Votes.th_thumb,
-              color: txtColor,
+              color:Colors.white,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.add,
-              color: txtColor,
+              color: Colors.white,
             ),
             label: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
               Icons.settings_outlined,
-              color: txtColor,
+              color: Colors.white,
             ),
             label: '',
           ),
