@@ -15,10 +15,38 @@ String format1(Jalali d) {
   return '${f.wN} ${f.d} ${f.mN} ${f.yy}';
 }
 
-class feed extends StatelessWidget {
+class feed extends StatefulWidget {
   static const String id = "feed_screen";
   final List<post> posts;
   feed(this.posts);
+
+  @override
+  State<feed> createState() => _feedState();
+}
+
+class _feedState extends State<feed> {
+  List<post> _foundPosts = [];
+  initState() {
+    _foundPosts = widget.posts;
+    super.initState();
+  }
+
+  void _runSearch(String enteredKeyword) {
+    List<post> searchedPosts = [];
+    if (enteredKeyword.isEmpty) {
+      searchedPosts = widget.posts;
+    } else {
+      searchedPosts = widget.posts
+          .where((post) => post.postTitle
+              .toLowerCase()
+              .contains(enteredKeyword.toLowerCase()))
+          .toList();
+    }
+
+    setState(() {
+      _foundPosts = searchedPosts;
+    });
+  }
 
   postComponent(post thePost, context) {
     return SafeArea(
@@ -49,7 +77,7 @@ class feed extends StatelessWidget {
               title: Text(
                 "r/" + thePost.postSource.subName,
                 style: TextStyle(
-                  color: txtColor,
+                  color: Colors.white,
                 ),
               ),
               subtitle: Row(
@@ -57,7 +85,7 @@ class feed extends StatelessWidget {
                   Text(
                     "u/" + thePost.poster.userName,
                     style: TextStyle(
-                      color: tabScreenColor,
+                      color: Colors.purple,
                     ),
                   ),
                   Text(
@@ -68,7 +96,7 @@ class feed extends StatelessWidget {
               ),
               trailing: IconButton(
                 icon: Icon(Icons.more_horiz),
-                color: txtColor,
+                color: Colors.white,
                 onPressed: () {},
               ),
             ),
@@ -80,14 +108,14 @@ class feed extends StatelessWidget {
                 Text(
                   thePost.postTitle,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: txtColor),
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 SizedBox(
                   height: 20,
                 ),
                 Text(
                   thePost.postContent,
-                  style: TextStyle(color:txtColor),
+                  style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(
                   height: 10,
@@ -101,12 +129,12 @@ class feed extends StatelessWidget {
                         ),
                         label: Text(thePost.upVotes.toString()),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary: txtColor),
+                        style: TextButton.styleFrom(primary: Colors.white),
                       ),
                       IconButton(
                         icon: Icon(
                           Votes.down_bold,
-                          color: txtColor,
+                          color: Colors.white,
                         ),
                         onPressed: () {},
                       ),
@@ -120,7 +148,7 @@ class feed extends StatelessWidget {
                         ),
                         label: Text(thePost.commentsCounter.toString()),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary:txtColor),
+                        style: TextButton.styleFrom(primary: Colors.white),
                       ),
                       SizedBox(
                         width: 20,
@@ -132,7 +160,7 @@ class feed extends StatelessWidget {
                         ),
                         label: Text("Share"),
                         onPressed: () {},
-                        style: TextButton.styleFrom(primary: txtColor),
+                        style: TextButton.styleFrom(primary: Colors.white),
                       ),
                     ],
                   ),
@@ -148,7 +176,7 @@ class feed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: Theme.of(context).primaryColor,
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -157,31 +185,31 @@ class feed extends StatelessWidget {
               height: 20,
             ),
             TextField(
-              style: TextStyle(color: txtColor),
+              style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                   enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5),
-                      borderSide: BorderSide(color: txtColor, width: 1.0)),
+                      borderSide: BorderSide(color: Colors.white, width: 1.0)),
                   focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: BorderSide(color: tabScreenColor, width: 2.0)),
+                      borderSide: BorderSide(color: Colors.purple, width: 2.0)),
                   labelText: 'Search',
                   floatingLabelBehavior: FloatingLabelBehavior.never,
                   suffixIcon: Icon(
                     Icons.search,
-                    color:txtColor,
+                    color: Colors.white,
                   ),
-                  labelStyle: TextStyle(color: txtColor)),
-              onChanged: (value) => {},
+                  labelStyle: TextStyle(color: Colors.white)),
+              onChanged: (value) => _runSearch(value),
             ),
             SizedBox(
               height: 20,
             ),
             Expanded(
               child: ListView.builder(
-                  itemCount: posts.length,
+                  itemCount: widget.posts.length,
                   itemBuilder: (context, index) {
-                    return postComponent(posts[index], context);
+                    return postComponent(_foundPosts[index], context);
                   }),
             ),
           ],
