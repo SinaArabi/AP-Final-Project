@@ -18,26 +18,26 @@ import 'package:reddit_sos/screens/registration_screen.dart';
 import 'package:reddit_sos/setting.dart';
 
 import 'global.dart';
+
 changeTheme() {
   if (isDarked == true) {
     bgColor = Colors.white;
     txtColor = Colors.black;
-    tabScreenColor=Colors.black;
-  }
-  else{
-    bgColor=Colors.black;
-    txtColor=Colors.white;
-    tabScreenColor=Color.fromRGBO(106, 50, 159, 1);
+    tabScreenColor = Colors.black;
+  } else {
+    bgColor = Colors.black;
+    txtColor = Colors.white;
+    tabScreenColor = Color.fromRGBO(106, 50, 159, 1);
   }
 }
-
 
 class tabsScreen extends StatefulWidget {
   static const String id = "tab_screen";
   List<post> myPosts = [
     new post(
       subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
-      new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
+      new user('Sina', 'ahmad@gmail.com', 'ahmad123\$', [],
+          "assets/images/7070023.jpg"),
       DateTime.now(),
       "Fifa update",
       "we are all hyped for the World Cup update!",
@@ -46,10 +46,16 @@ class tabsScreen extends StatefulWidget {
       false,
       2,
       [
-        new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-            "wow thats great!", 6, 1, DateTime.now()),
         new comment(
-          new user("Khar",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
+            new user("Shrek", 'ahmad@gmail.com', 'ahmad123\$', [],
+                "assets/images/shrek.jpg"),
+            "wow thats great!",
+            6,
+            1,
+            DateTime.now()),
+        new comment(
+          new user("Khar", 'ahmad@gmail.com', 'ahmad123\$', [],
+              "assets/images/donkey.jpg"),
           "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
           1,
           2,
@@ -59,7 +65,8 @@ class tabsScreen extends StatefulWidget {
     ),
     new post(
       subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
-      new user('Sadra','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
+      new user('Sadra', 'ahmad@gmail.com', 'ahmad123\$', [],
+          "assets/images/7070023.jpg"),
       DateTime.now(),
       "Gta online update",
       "Another one!",
@@ -68,10 +75,16 @@ class tabsScreen extends StatefulWidget {
       false,
       1,
       [
-        new comment(new user("Justin",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/justin.jpg"),
-            "new glitches soming soon!", 6, 1, DateTime.now()),
         new comment(
-          new user("Steven",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/trevor.jpg"),
+            new user("Justin", 'ahmad@gmail.com', 'ahmad123\$', [],
+                "assets/images/justin.jpg"),
+            "new glitches soming soon!",
+            6,
+            1,
+            DateTime.now()),
+        new comment(
+          new user("Steven", 'ahmad@gmail.com', 'ahmad123\$', [],
+              "assets/images/trevor.jpg"),
           "Don't You Ever Not Tell Me Things I Wanna Know!",
           1,
           2,
@@ -81,7 +94,8 @@ class tabsScreen extends StatefulWidget {
     ),
     new post(
       subReddit('Programming', "assets/images/pro.jpg", 30, "", []),
-      new user('Salar','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
+      new user('Salar', 'ahmad@gmail.com', 'ahmad123\$', [],
+          "assets/images/7070023.jpg"),
       DateTime.now(),
       "Flutter discuss",
       "We are happy to announce that a new update for our theme would be released soon!",
@@ -90,30 +104,42 @@ class tabsScreen extends StatefulWidget {
       false,
       1,
       [
-        new comment(new user("Majid",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/stevejobs.jpg"),
-            "That made my day!!!", 6, 1, DateTime.now()),
+        new comment(
+            new user("Majid", 'ahmad@gmail.com', 'ahmad123\$', [],
+                "assets/images/stevejobs.jpg"),
+            "That made my day!!!",
+            6,
+            1,
+            DateTime.now()),
       ],
     ),
   ];
-
 
   List<subReddit> mySubreddits = [
     subReddit(
         'RepOfPls', "assets/images/rop.jpg", 56, "Online gamers commiunity", [
       new post(
         subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
-        new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
+        new user('Sina', 'ahmad@gmail.com', 'ahmad123\$', [],
+            "assets/images/7070023.jpg"),
         DateTime.now(),
         "Fifa update",
         "we are all hyped for the World Cup update!",
         18,
-        false,false,
+        false,
+        false,
         2,
         [
-          new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
           new comment(
-            new user("Khar",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
+              new user("Shrek", 'ahmad@gmail.com', 'ahmad123\$', [],
+                  "assets/images/shrek.jpg"),
+              "wow thats great!",
+              6,
+              1,
+              DateTime.now()),
+          new comment(
+            new user("Khar", 'ahmad@gmail.com', 'ahmad123\$', [],
+                "assets/images/donkey.jpg"),
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
             1,
             2,
@@ -123,18 +149,26 @@ class tabsScreen extends StatefulWidget {
       ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
-        new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
+        new user('Sina', 'ahmad@gmail.com', 'ahmad123\$', [],
+            "assets/images/7070023.jpg"),
         DateTime.now(),
         "Gta online update",
         "Another one!",
         27,
-        false,false,
+        false,
+        false,
         1,
         [
-          new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
           new comment(
-            new user("Khar", 'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
+              new user("Shrek", 'ahmad@gmail.com', 'ahmad123\$', [],
+                  "assets/images/shrek.jpg"),
+              "wow thats great!",
+              6,
+              1,
+              DateTime.now()),
+          new comment(
+            new user("Khar", 'ahmad@gmail.com', 'ahmad123\$', [],
+                "assets/images/donkey.jpg"),
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
             1,
             2,
@@ -144,18 +178,24 @@ class tabsScreen extends StatefulWidget {
       ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
-        new user('Sadra','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
+        new user('Sadra', 'ahmad@gmail.com', 'ahmad123\$', [],
+            "assets/images/7070023.jpg"),
         DateTime.now(),
         "Gta online update",
         "Another one!",
         27,
-        false,false,
+        false,
+        false,
         1,
         [
-          new comment(new user("Justin",'ahmad@gmail.com', 'ahmad123\$', [], ""), "new glitches soming soon!",
-              6, 1, DateTime.now()),
           new comment(
-            new user("Steven", 'ahmad@gmail.com', 'ahmad123\$',[], ""),
+              new user("Justin", 'ahmad@gmail.com', 'ahmad123\$', [], ""),
+              "new glitches soming soon!",
+              6,
+              1,
+              DateTime.now()),
+          new comment(
+            new user("Steven", 'ahmad@gmail.com', 'ahmad123\$', [], ""),
             "Don't You Ever Not Tell Me Things I Wanna Know!",
             1,
             2,
@@ -165,18 +205,26 @@ class tabsScreen extends StatefulWidget {
       ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
-        new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
+        new user('Sina', 'ahmad@gmail.com', 'ahmad123\$', [],
+            "assets/images/7070023.jpg"),
         DateTime.now(),
         "Gta online update",
         "Another one!",
         27,
-        false,false,
+        false,
+        false,
         5,
         [
-          new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
           new comment(
-            new user("Khar",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
+              new user("Shrek", 'ahmad@gmail.com', 'ahmad123\$', [],
+                  "assets/images/shrek.jpg"),
+              "wow thats great!",
+              6,
+              1,
+              DateTime.now()),
+          new comment(
+            new user("Khar", 'ahmad@gmail.com', 'ahmad123\$', [],
+                "assets/images/donkey.jpg"),
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
             1,
             2,
@@ -186,18 +234,26 @@ class tabsScreen extends StatefulWidget {
       ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
-        new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
+        new user('Sina', 'ahmad@gmail.com', 'ahmad123\$', [],
+            "assets/images/7070023.jpg"),
         DateTime.now(),
         "Gta online update",
         "Another one!",
         27,
-        false,false,
+        false,
+        false,
         1,
         [
-          new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
           new comment(
-            new user("Khar",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
+              new user("Shrek", 'ahmad@gmail.com', 'ahmad123\$', [],
+                  "assets/images/shrek.jpg"),
+              "wow thats great!",
+              6,
+              1,
+              DateTime.now()),
+          new comment(
+            new user("Khar", 'ahmad@gmail.com', 'ahmad123\$', [],
+                "assets/images/donkey.jpg"),
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
             1,
             2,
@@ -211,6 +267,9 @@ class tabsScreen extends StatefulWidget {
     subReddit("Programmers", 'assets/images/prog.jpg', 20212, "", []),
     subReddit("GTA V", "assets/images/gta.jpg", 5000000, "", []),
   ];
+
+  tabsScreen(this.myPosts);
+  
 
   @override
   State<tabsScreen> createState() => _tabsScreenState();
@@ -232,19 +291,16 @@ class _tabsScreenState extends State<tabsScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Reddit'),
-        backgroundColor:tabScreenColor,
+        backgroundColor: tabScreenColor,
         leading: IconButton(
           alignment: Alignment.centerRight,
           icon: Icon(Icons.nightlight),
-
           onPressed: () {
             setState(() {
               isDarked = !isDarked;
             });
 
-
             changeTheme();
-
           },
         ),
       ),
@@ -253,7 +309,7 @@ class _tabsScreenState extends State<tabsScreen> {
         children: [
           feed(widget.myPosts),
           subRedditPage(widget.mySubreddits),
-          addPost(widget.mySubreddits),
+          addPost(widget.mySubreddits, widget.myPosts),
           Setting(),
         ],
       ),
