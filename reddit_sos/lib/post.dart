@@ -17,8 +17,5 @@ class post {
   List<comment> postComments;
   post(this.postSource, this.poster, this.postDate, this.postTitle, this.postContent,
       this.upVotes, this.upVoteIsPressed, this.downVoteIsPressed, this.commentsCounter, this.postComments);
-
-  void addComment(String commentContent){
-    //...
-  }    
+  
 }
