@@ -200,8 +200,9 @@ class Reddit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: tabsScreen.id,
-      // WelcomeScreen.id,
+      initialRoute: 
+      // tabsScreen.id,
+      WelcomeScreen.id,
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         LoginScreen.id: (context) => LoginScreen(),

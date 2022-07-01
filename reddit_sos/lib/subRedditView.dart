@@ -59,7 +59,7 @@ class _subRedditViewState extends State<subRedditView> {
               setState(() {
                 isJoined = !isJoined;
               });
-              sendInfoToServer(widget.chosenSubReddit.subName, isJoined);
+              // sendInfoToServer(widget.chosenSubReddit.subName, isJoined);
             },
             child: isJoined
                 ? Text("Joined")
@@ -307,12 +307,12 @@ class _subRedditViewState extends State<subRedditView> {
     );
   }
 
-  sendInfoToServer(String subReddit, bool isJoined) async {
-    String request = "joinSubreddit\n$subReddit/$isJoined\u0000";
-    await Socket.connect("10.0.2.2", 1111).then((ServerSocket) {
-      ServerSocket.write(request);
-      ServerSocket.flush();
-      ServerSocket.listen((response) {});
-    });
-  }
+  // sendInfoToServer(String subReddit, bool isJoined) async {
+  //   String request = "joinSubreddit\n$subReddit/$isJoined\u0000";
+  //   await Socket.connect("10.0.2.2", 1111).then((ServerSocket) {
+  //     ServerSocket.write(request);
+  //     ServerSocket.flush();
+  //     ServerSocket.listen((response) {});
+  //   });
+  // }
 }

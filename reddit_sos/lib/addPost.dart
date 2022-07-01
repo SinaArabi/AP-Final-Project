@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
@@ -25,10 +27,10 @@ class _addPostState extends State<addPost> {
   TextEditingController contentController = TextEditingController();
   late String primaryValue;
   post newPost = new post(
-      new subReddit('', "assets/images/7070023.jpg", 56, "", []),
+      new subReddit('', "assets/images/ball.JPG", 56, "", []),
       new user(
           "", 'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
-      DateTime.now(),
+      j,
       "",
       "",
       0,
@@ -151,4 +153,17 @@ class _addPostState extends State<addPost> {
       ),
     );
   }
+
+  //   sendInfoToServer(String postTitle, String postContent, String subName) async {
+  //   String request = "addPost\n$postTitle/$postContent/$subName/$mainUserName\u0000";
+  //   await Socket.connect("10.0.2.2", 1111).then((ServerSocket) {
+  //     ServerSocket.write(request);
+  //     ServerSocket.flush();
+  //     ServerSocket.listen((response) {
+  //       setState(() {
+  //         // _log += (checkResponse(String.fromCharCodes(response)));
+  //       });
+  //     });
+  //   });
+  // }
 }
