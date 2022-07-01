@@ -5,6 +5,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/addComment.dart';
 import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/icons.dart';
+import 'package:shamsi_date/shamsi_date.dart';
 import 'main.dart';
 import './post.dart';
 import './commentDisplay.dart';
@@ -15,6 +16,11 @@ import 'package:reddit_sos/subReddit.dart';
 import 'package:reddit_sos/subRedditPage.dart';
 import 'package:reddit_sos/tabs_screen.dart';
 import './post.dart';
+String format1(Jalali d) {
+  final f = d.formatter;
+
+  return '${f.wN} ${f.d} ${f.mN} ${f.yy}';
+}
 
 class postView extends StatefulWidget {
   final post chosenPost;
@@ -103,8 +109,7 @@ class _postViewState extends State<postView> {
                     ),
                     Text(
                       " . " +
-                          DateFormat.yMMMEd()
-                              .format(widget.chosenPost.postDate),
+                          format1(j),
                       style: TextStyle(color: Colors.blueAccent),
                     )
                   ],

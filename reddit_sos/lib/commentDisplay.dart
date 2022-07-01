@@ -3,10 +3,17 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:reddit_sos/icons.dart';
+import 'package:shamsi_date/shamsi_date.dart';
 
 import './post.dart';
 import './comment.dart';
 import "./global.dart";
+String format1(Jalali d) {
+  final f = d.formatter;
+
+  return '${f.wN} ${f.d} ${f.mN} ${f.yy}';
+}
+
 
 commentComponent(comment cm) {
   return Column(
@@ -28,7 +35,7 @@ commentComponent(comment cm) {
         title: Text(
           cm.commentposter.userName +
               " . " +
-              DateFormat.yMMMEd().format(cm.commentDate),
+              format1(cm.commentDate),
           style: TextStyle(
             color: txtColor,
           ),

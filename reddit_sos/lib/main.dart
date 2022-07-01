@@ -3,6 +3,7 @@ import 'package:reddit_sos/about.dart';
 import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/addPost.dart';
 import 'package:reddit_sos/comment.dart';
+import 'package:reddit_sos/global.dart';
 import 'package:reddit_sos/post.dart';
 import 'package:reddit_sos/postView.dart';
 import 'package:reddit_sos/subRedditView.dart';
@@ -16,6 +17,8 @@ import 'package:reddit_sos/screens/welcome_screen.dart';
 import 'package:reddit_sos/screens/login_screen.dart';
 import 'package:reddit_sos/screens/registration_screen.dart';
 import 'package:reddit_sos/setting.dart';
+import 'package:shamsi_date/shamsi_date.dart';
+
 
 void main() => runApp(Reddit());
 
@@ -24,7 +27,7 @@ class Reddit extends StatelessWidget {
     new post(
       subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
       new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
-      DateTime.now(),
+      j,
       "Fifa update",
       "we are all hyped for the World Cup update!",
       18,
@@ -32,20 +35,20 @@ class Reddit extends StatelessWidget {
       2,
       [
         new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-            "wow thats great!", 6, 1, DateTime.now()),
+            "wow thats great!", 6, 1, j),
         new comment(
           new user("Khar",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
           "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
           1,
           2,
-          DateTime.now(),
+          j,
         ),
       ],
     ),
     new post(
       subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
       new user('Sadra','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
-      DateTime.now(),
+      j,
       "Gta online update",
       "Another one!",
       27,
@@ -53,20 +56,20 @@ class Reddit extends StatelessWidget {
       1,
       [
         new comment(new user("Justin",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/justin.jpg"),
-            "new glitches soming soon!", 6, 1, DateTime.now()),
+            "new glitches soming soon!", 6, 1, j),
         new comment(
           new user("Steven",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/trevor.jpg"),
           "Don't You Ever Not Tell Me Things I Wanna Know!",
           1,
           2,
-          DateTime.now(),
+          j,
         ),
       ],
     ),
     new post(
       subReddit('Programming', "assets/images/pro.jpg", 30, "", []),
       new user('Salar', 'ahmad@gmail.com', 'ahmad123\$',[], "assets/images/7070023.jpg"),
-      DateTime.now(),
+      j,
       "Flutter discuss",
       "We are happy to announce that a new update for our theme would be released soon!",
       18,
@@ -74,7 +77,7 @@ class Reddit extends StatelessWidget {
       1,
       [
         new comment(new user("Majid",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/stevejobs.jpg"),
-            "That made my day!!!", 6, 1, DateTime.now()),
+            "That made my day!!!", 6, 1, j),
       ],
     ),
   ];
@@ -85,7 +88,7 @@ class Reddit extends StatelessWidget {
       new post(
         subReddit('Fifa22', "assets/images/7070023.jpg", 56, "", []),
         new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
-        DateTime.now(),
+        j,
         "Fifa update",
         "we are all hyped for the World Cup update!",
         18,
@@ -93,20 +96,20 @@ class Reddit extends StatelessWidget {
         2,
         [
           new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
+              "wow thats great!", 6, 1, j),
           new comment(
             new user("Khar",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
             1,
             2,
-            DateTime.now(),
+            j,
           ),
         ],
       ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
         new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
-        DateTime.now(),
+        j,
         "Gta online update",
         "Another one!",
         27,
@@ -114,20 +117,20 @@ class Reddit extends StatelessWidget {
         1,
         [
           new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
+              "wow thats great!", 6, 1, j),
           new comment(
             new user("Khar", 'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
             1,
             2,
-            DateTime.now(),
+            j,
           ),
         ],
       ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
         new user('Sadra','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
-        DateTime.now(),
+        j,
         "Gta online update",
         "Another one!",
         27,
@@ -135,20 +138,20 @@ class Reddit extends StatelessWidget {
         1,
         [
           new comment(new user("Justin",'ahmad@gmail.com', 'ahmad123\$', [], ""), "new glitches soming soon!",
-              6, 1, DateTime.now()),
+              6, 1, j),
           new comment(
             new user("Steven", 'ahmad@gmail.com', 'ahmad123\$',[], ""),
             "Don't You Ever Not Tell Me Things I Wanna Know!",
             1,
             2,
-            DateTime.now(),
+            j,
           ),
         ],
       ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
         new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
-        DateTime.now(),
+        j,
         "Gta online update",
         "Another one!",
         27,
@@ -156,20 +159,20 @@ class Reddit extends StatelessWidget {
         5,
         [
           new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
+              "wow thats great!", 6, 1, j),
           new comment(
             new user("Khar",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
             1,
             2,
-            DateTime.now(),
+            j,
           ),
         ],
       ),
       new post(
         subReddit('Gta', "assets/images/gta.jpg", 56, "", []),
         new user('Sina','ahmad@gmail.com', 'ahmad123\$', [], "assets/images/7070023.jpg"),
-        DateTime.now(),
+        j,
         "Gta online update",
         "Another one!",
         27,
@@ -177,13 +180,13 @@ class Reddit extends StatelessWidget {
         1,
         [
           new comment(new user("Shrek",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/shrek.jpg"),
-              "wow thats great!", 6, 1, DateTime.now()),
+              "wow thats great!", 6, 1, j),
           new comment(
             new user("Khar",'ahmad@gmail.com', 'ahmad123\$', [], "assets/images/donkey.jpg"),
             "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).!",
             1,
             2,
-            DateTime.now(),
+            j,
           ),
         ],
       ),
